@@ -1,13 +1,16 @@
 const express = require('express');
 const app = express();
+const port = process.env.PORT || 5000;
 
-const port = 3000;
+// Console log that server is up
+app.listen(port, () => console.log(`Portfolio web-app listening at http://localhost:${port}`));
 
-app.get('/', (req, res) => {
-    res.write('Hello World!');
-    res.end();
+// Hello word 
+app.get('/helloworld', (req, res) => {
+    res.send({ string: 'Hello World!' });
 });
 
-app.listen(port, () => {
-    console.log(`Portfolio web-app listening at http://localhost:${port}`);
+// Express backend is up and running
+app.get('/express_backend', (req, res) => {
+    res.send({ express: 'Yeah it is!' });
 });
