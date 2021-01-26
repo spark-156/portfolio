@@ -1,9 +1,7 @@
-FROM node:10
+FROM node:10.23.1-alpine3.10
 
-WORKDIR /usr/src/app
-
+WORKDIR /app
 COPY server/package.json ./
-
 RUN npm install
 
 COPY . . 
