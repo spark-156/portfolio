@@ -1,0 +1,30 @@
+version: '3'
+services:
+  app:
+    build: 
+      context: .
+      dockerfile: ./client/Dockerfile.prod.yml
+    ports:
+      - '8080:80'
+    depends_on:
+      - server
+    networks:
+      - portfolio_default
+  server:
+    build:
+      context: .
+      dockerfile: ./server/Dockerfile.prod.yml
+    ports:
+      - '5000:5000'
+    networks:
+      - portfolio_default
+    # depends_on:
+    #   - mongo
+  # mongo:
+  #   image: mongo
+  #   ports:
+  #     - '27017:27017'
+
+networks:
+  portfolio_default:
+    driver: bridge
