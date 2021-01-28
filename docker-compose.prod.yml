@@ -1,29 +1,23 @@
 version: "3"
 services:
   client:
-    container_name: portfolio_client_dev
+    container_name: portfolio_client
     restart: always
     build:
       context: ./client
-      dockerfile: Dockerfile.dev.yml
-    volumes: 
-      - ./client:/usr/src/app/client
+      dockerfile: Dockerfile.prod.yml
     ports:
-      - '3000:3000'
+      - '80:80'
     networks: 
       - frontend
     depends_on: 
       - server
   server:
-    container_name: portfolio_server_dev
+    container_name: portfolio_server
     restart: always
     build:
       context: ./server
-      dockerfile: Dockerfile.dev.yml
-    volumes: 
-      - ./server:/usr/src/app/server
-    ports:
-      - '5000:5000'
+      dockerfile: Dockerfile.prod.yml
     networks: 
       - backend
       - frontend
@@ -33,9 +27,7 @@ services:
     restart: always
     image: mongo
     volumes:
-      - ./database/dev/db:/data/db
-    ports:
-      - '27017:27017'
+      - ./database/prod/db:/data/db
     networks: 
       - backend
       
