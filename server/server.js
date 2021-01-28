@@ -18,7 +18,7 @@ app.use('/api/projects', projectsRouter);
 // Error handling middleware
 app.use((err, req, res, next) => {
   status = err.status || 500;
-
+  res.status(status).send(err.message);
 });
 
 // listen for requests
