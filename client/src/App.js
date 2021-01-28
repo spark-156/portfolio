@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 function App() {
   const [apiCallResponse, setApiCallResponse] = useState(null);
-  const [selectedApi, setSelectedApi] = useState('/api/helloworld');
+  const [selectedApi, setSelectedApi] = useState('/api/projects/helloworld');
 
   useEffect(() => {
     async function fetchApi() {
