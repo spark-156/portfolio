@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const PORT = process.env.port || 5000;
 
 // create express app
 const app = express();
@@ -14,7 +15,13 @@ app.use(bodyParser.json())
 const projectsRouter = require('./routes/projects');
 app.use('/api/projects', projectsRouter);
 
+// Error handling middleware
+app.use((err, req, res, next) => {
+  status = err.status || 500;
+
+});
+
 // listen for requests
-app.listen(5000, () => {
-    console.log("Server is listening on port 4000");
+app.listen(PORT, () => {
+    console.log(`Server is listening on port ${PORT}`);
 });
