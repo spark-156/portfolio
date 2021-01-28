@@ -1,9 +1,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const morgan = require('morgan');
+
 const PORT = process.env.port || 5000;
 
 // create express app
 const app = express();
+
+// Logging middleware
+app.use(morgan('dev'));
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }))
