@@ -1,0 +1,15 @@
+FROM node:10
+
+# RUN mkdir /usr/src/app/server
+WORKDIR /usr/src/app/server
+
+COPY package*.json ./
+RUN npm install #TODO flag as --production
+RUN npm install -g nodemon
+
+COPY . .
+
+# Open for development
+EXPOSE 5000
+
+CMD ["nodemon", "--legacy-watch", "server.js"]
