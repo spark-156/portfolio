@@ -1,0 +1,11 @@
+/* About slide */
+#aboutSlide {
+    grid-auto-rows: auto;
+    
+}
+#aboutName {
+    margin-top: 20vh;
+}
+#aboutDescription {
+    margin: 0 5vh 20vh 5vh;
+}

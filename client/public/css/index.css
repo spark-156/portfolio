@@ -1,6 +1,6 @@
-@import "sections.css" ;
-@import "navbar.css";
-
+@import "swiper.css";
+@import "grid-container.css";
+@import "slides.css";
 body {
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
@@ -8,12 +8,29 @@ body {
     color: #F0FFF1;
     line-height: 30px;
     background-color: #5A8EAF;
-    left: 0;
-    top: 0;
-    margin: 0px;
-    padding: 0px;
+    /* left: 0;
+    top: 0; */
+    /* margin: 0px;
+    padding: 0px; */
 }
 
-.bluebg {
-    background-color: #5A8EAF;
+a {
+    color: #F0FFF1;
+}
+a:visited {
+    color: #F0FFF1;
+}
+a:hover {
+    color: #F0FFF1;
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    margin: 5vh 0;
 }
