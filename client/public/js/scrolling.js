@@ -8,7 +8,6 @@ $(document).ready(function() {
     $(window).on("scroll touchmove", function() {
         const navbar = $('#navbar');
         let scroll = $(window).scrollTop();
-        console.log(scroll);
         if (scroll >= initNavbarPosition) {
             navbar.removeClass('sticky');
             navbar.addClass('fixed');
