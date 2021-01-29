@@ -1,0 +1,20 @@
+
+/* Make section one screen width high */
+section {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100vh 
+}
+
+.floatLeft {
+    display: block;
+    float: left;
+    margin: 0 5px;
+}
+
+.floatRight {
+    display: block;
+    float: right;
+    margin: 0 5px;
+}
