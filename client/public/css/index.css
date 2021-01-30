@@ -16,6 +16,11 @@ body {
     background-size: contain;
 }
 
+.background {
+    background-color:rgba(90, 140, 175, 0.6);
+}
+
+
 a {
     color: #F0FFF1;
 }
@@ -35,8 +40,4 @@ ul {
 
 li {
     margin: 5vh 0;
-}
-
-.background {
-    background-color:rgba(90, 140, 175, 0.6);
 }

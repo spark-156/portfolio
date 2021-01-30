@@ -3,6 +3,10 @@
     grid-auto-rows: auto;
     
 }
+#aboutSlideImages {
+    margin: 25vh 0;
+    height: 50vh;
+}
 #aboutName {
     margin-top: 20vh;
 }
