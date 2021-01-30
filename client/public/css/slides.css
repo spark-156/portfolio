@@ -1,6 +1,7 @@
 /* About slide */
 #aboutSlide {
     grid-auto-rows: auto;
+    font-size: xx-large;
     
 }
 #aboutSlideImages {
@@ -12,4 +13,9 @@
 }
 #aboutDescription {
     margin: 0 5vh 20vh 5vh;
+}
+
+/* Contact slide */
+#contactSlide {
+    font-size: xx-large;
 }
