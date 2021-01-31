@@ -19,6 +19,10 @@ app.use(bodyParser.json())
 const projectsRouter = require('./routes/projects');
 app.use('/api/projects', projectsRouter);
 
+// Import and init about route
+const aboutRouter = require('./routes/about');
+app.use("/api/about", aboutRouter);
+
 // Error handling middleware
 app.use((err, req, res, next) => {
   status = err.status || 500;
