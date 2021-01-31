@@ -6,11 +6,11 @@ body {
     font-weight: 300;
     color: #F0FFF1;
     line-height: 30px;
-    /* background-color: #5A8EAF; */
-    /* left: 0;
-    top: 0; */
-    /* margin: 0px;
-    padding: 0px; */
+    background-color: #5A8EAF;
+    left: 0;
+    top: 0; 
+    margin: 0px;
+    padding: 0px;
     background-image: url("../images/wood-floor.jpeg");
     background-size: contain;
 }
