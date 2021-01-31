@@ -1,13 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { useFetch } from '../lib/apiHandler';
 
 export function AboutSlide() {
-    const [aboutText, setAboutText] = useState(null);
+    const [about, setAbout] = useState(null);
+    const [loading, setLoading] = useState(true);
     
-    setAboutText(useFetch('/api/about/'))
+    const tempAbout = useFetch('/api/about/');
+
+    useEffect(() => {
+        if (tempAbout !== null) {
+            setLoading(false)
+            setAbout(tempAbout);
+        }
+    }, [tempAbout]);
 
     return (<div className="swiper-slide">
-        <div>{aboutText}</div>
+        <p>{loading ? "Loading" : about.name}</p>
+        <p>{loading ? "Loading" : about.text}</p>
     </div>)
 }
