@@ -15,8 +15,9 @@ export function AboutSlide() {
         }
     }, [tempAbout]);
 
-    return (<div className="swiper-slide">
-        <p>{loading ? "Loading" : about.name}</p>
-        <p>{loading ? "Loading" : about.text}</p>
+    // TODO change "loading..." to beautiful loading symbol
+    return (<div id="aboutSlide" className="swiper-slide">
+        <div>{loading ? "Loading..." : about.name}</div>
+        <div>{loading ? "Loading..." : about.text}</div>
     </div>)
 }
