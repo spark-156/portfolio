@@ -1,32 +1,12 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from 'react';
 
+import { AboutSlide } from './components/AboutSlide'; 
+
 function App() {
-  const [apiCallResponse, setApiCallResponse] = useState(null);
-  const [selectedApi, setSelectedApi] = useState('/api/projects/helloworld');
-
-  useEffect(() => {
-    async function fetchApi() {
-      const res = await fetch(selectedApi);
-      const body = await res.json();
-      if (res.status !== 200) {throw Error(body.message)}
-      setApiCallResponse(body.message);
-    }
-    fetchApi();
-  }, [selectedApi]);
-
-  function handleApiSelectorChange({ target }) {
-    setSelectedApi(target.value);
-    console.log(selectedApi);
-  }
-
   return (
     <div>
-      <h1>Welcome to React!</h1>
-      <div>{apiCallResponse}</div>
-      <select onChange={handleApiSelectorChange}>
-        <option value="/api/projects/helloworld">helloworld yes</option>
-        <option value="/api/projects/express_backend">express</option>
-      </select>
+      <AboutSlide />
     </div>
   );
 }
