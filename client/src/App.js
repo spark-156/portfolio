@@ -6,6 +6,7 @@ import { AboutSlide } from './components/AboutSlide';
 
 import { useFetch } from './lib/apiHandler';
 
+// Ant Design imports
 import { Spin } from 'antd';
 import 'antd/dist/antd.css';
 
