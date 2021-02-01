@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 
 import { Navbar } from './components/Navbar';
-import { AboutSlide } from './components/AboutSlide';
+import { AboutPage } from './components/AboutPage';
 
 import { useFetch } from './lib/apiHandler';
 
@@ -27,14 +27,10 @@ export default function App() {
     <Spin size="large" id="spinner" style={{position: "absolute", top: "50%", left: "50%"}}/>
     </div>);
 
+
   const containerLoaded = (<div class="background">
     <Navbar about={about} />
-    <div class="swiper-container">
-      <div class="swiper-wrapper">
-        <AboutSlide about={about} />
-        <div class="swiper-button-next"></div>
-      </div>
-    </div>
+    <AboutPage about={about} />
   </div>);
 
   return loading.loading ? containerLoading : containerLoaded;

@@ -1,22 +1,22 @@
 /* phone */
 @media (max-height: 799px) {
-    #aboutSlide {
+    #aboutPage {
         font-size: x-large;
     }
 }
 
 /* desktop / tablet */
 @media (min-height: 800px) {
-    #aboutSlide {
+    #aboutPage {
         font-size: xx-large;
         max-width: 1000px;
     }
 }
 
 /* everything */
-#aboutSlide {
+#aboutPage {
     margin: 25vh auto;
 }
-#aboutSlide > div {
+#aboutPage > div {
     margin: 10vh 0;
 }
