@@ -15,9 +15,8 @@ module.exports = mongoose => {
             minlength: 3,
           },
           image: {
-            type: Buffer,
-            require: true,
-            ContentType: String
+            data: Buffer,
+            mimetype: String
           },
           startDate: {
             type: Date,
