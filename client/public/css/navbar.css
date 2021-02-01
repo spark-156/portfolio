@@ -1,26 +1,31 @@
 /* phone */
-@media (max-height: 799px) {
+@media (max-width: 1199px) {
     #navbarLeft, #navbarRight {
-        font-size: 20px;
     }
     #navbarLeft {
-        
+        left: 0;
     }
     #navbarRight {
-        
+        right: 0;
+       
     }
 }
 
 /* desktop / tablet */
-@media (min-height: 800px) {
-    #navbarLeft, #navbarRight {
-        font-size: 2vh;
+@media (min-width: 1200px) {
+    #navbar {
+        width: 1200px;
+        margin: 0 auto;
     }
-    #navbarLeft {
-        
+    #navbarLeft, #navbarRight {
+    }
+    #navbarLeft {   
+        float: left;
+        width: inherit;
     }
     #navbarRight {
-        
+        float: right;
+        width: inherit;
     }
 }
 
@@ -32,15 +37,16 @@
     margin: 0;
     color: #F0FFF1;
     top: 0;
+    font-size: 20px;
 }
 #navbarLeft {
-    float: left;
-    left: 0;
+    text-align: left;
 }
 #navbarRight {
-    float: left;
-    right: 0;
     text-align: right;
+}
+#navbarRight > button:hover {
+    text-decoration: underline;
 }
 #navbarRight > button {
     background: none;
