@@ -22,8 +22,38 @@ projectsRouter.get('/latest', (req, res, next) => {
 
 });
 
-projectsRouter.post('/admin/new', (req, res, next) => {
-    
+projectsRouter.post('/admin/new', async (req, res, next) => {
+    try {
+        console.log(req.files.image);
+        const { title, description, company, startDate, endDate } =  req.body;
+        if (!title || !description || !company || !startDate || !req.files || Object.keys(req.files).length === 0) {
+            const error = new Error("Please send all required fields")
+            error.status = 400; // Bad request
+            return next(error);
+        }
+        if (req.files.image.truncated) {
+            const error = new Error("Image filesize too big");
+            error.status = 400;
+            return next(error);
+        }
+        if (req.files.image.mimetype in ["image/jpg", "image/jpeg", "image/png"]) {
+            const error = new Error(`Mimetype is not in ["jpg", "jpeg", "png"]`);
+            error.status = 400;
+            return next(error);
+        }
+        let project = new ProjectsModel({
+            title, description, company, startDate, endDate 
+        });
+        console.log(project);
+
+        const { data, mimetype } = req.files.image;
+        project.image.data = data;
+        project.image.mimetype = mimetype;
+        await project.save();
+        res.status(201).json({ "id": project._id });
+    } catch {
+        next(new Error("Could not create new project"));
+    }
 })
 
 projectsRouter.put('/admin/id/:id', (req, res, next) => {
