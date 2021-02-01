@@ -4,14 +4,23 @@ const app = express();
 const projectsRouter = express.Router();
 
 // Hello World route
-projectsRouter.get('/helloworld', (req, res, next) => {
-    res.json({"message": "Hello World!"});
+projectsRouter.get('/all', (req, res, next) => {
+
 });
 
-projectsRouter.get('/express_backend', (req, res, next) => {
-    res.json({"message": "express_backend"});
+projectsRouter.get('/latest', (req, res, next) => {
+
 });
 
+projectsRouter.post('/admin/new', (req, res, next) => {
 
+})
 
+projectsRouter.put('/admin/id/:id', (req, res, next) => {
+
+})
+
+projectsRouter.delete('/admin/id/:id', (req, res, next) => {
+
+})
 module.exports = projectsRouter;
