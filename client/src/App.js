@@ -7,12 +7,7 @@ import { AboutSlide } from './components/AboutSlide';
 import { useFetch } from './lib/apiHandler';
 
 import { Spin } from 'antd';
-
-const spinStyle = {
-  height: "100vh",
-  width: "100%",
-  backgroundColor: "rgba(90, 140, 175, 0.6)"
-}
+import 'antd/dist/antd.css';
 
 export default function App() {
   const [about, setAbout] = useState(null);
@@ -27,8 +22,11 @@ export default function App() {
     }
   }, [tempAbout]);
 
+  const containerLoading = (<div class="background">
+    <Spin size="large" id="spinner" style={{position: "absolute", top: "50%", left: "50%"}}/>
+    </div>);
 
-  const container = (<div class="background">
+  const containerLoaded = (<div class="background">
     <Navbar about={about} />
     <div class="swiper-container">
       <div class="swiper-wrapper">
@@ -36,7 +34,7 @@ export default function App() {
         <div class="swiper-button-next"></div>
       </div>
     </div>
+  </div>);
 
-  </div>)
-  return loading.loading ? <Spin style={spinStyle} spinning={loading} /> : container;
+  return loading.loading ? containerLoading : containerLoaded;
 };
