@@ -7,7 +7,6 @@ const aboutRouter = express.Router();
 // Middleware for finding about with certain id
 const findById = async (req, res, next) => {
     try {
-        console.log("trying to find ID", req.params.id)
         const about = await AboutModel.find({ "_id": req.params.id });
         if (about.length > 0) {
             req.about = about;
@@ -80,7 +79,7 @@ aboutRouter.put("/admin/id/:id", findById, async (req, res, next) => {
             error.status = 404;
             return next(error) 
         }
-        res.status(200).send()
+        res.status(200).send(req.params.id);
     } catch {
         next(new Error("Could not update About object"));
     }
