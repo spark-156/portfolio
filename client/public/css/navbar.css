@@ -1,0 +1,33 @@
+/* phone */
+@media (max-height: 799px) {
+    #navbarLeft {
+        
+    }
+    #navbarRight {
+        
+    }
+}
+
+/* desktop / tablet */
+@media (min-height: 800px) {
+    #navbarLeft {
+        
+    }
+    #navbarRight {
+        
+    }
+}
+
+/* everything */
+#navbarLeft, #navbarRight {
+    position: absolute;
+    z-index: 100; 
+    padding: 0;
+    margin: 0;
+}
+#navbarLeft {
+    float: left;
+}
+#navbarRight {
+    float: right;
+}
