@@ -3,9 +3,35 @@ module.exports = mongoose => {
       "Projects",
       mongoose.Schema(
         {
-          title: String,
-          description: String,
-          image: Buffer,
+          title: {
+            type: String,
+            require: true,
+            minlength: 3,
+            maxlength: 255
+          },
+          description: {
+            type: String,
+            require: true,
+            minlength: 3,
+          },
+          image: {
+            type: Buffer,
+            require: true,
+            ContentType: String
+          },
+          startDate: {
+            type: Date,
+            require: true
+          },
+          endDate: {
+            type: Date,
+            require: false
+          },
+          company: {
+            type: String,
+            require: true,
+            maxlength: 255
+          }
         },
         { timestamps: true }
       )
