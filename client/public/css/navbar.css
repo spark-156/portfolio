@@ -1,5 +1,8 @@
 /* phone */
 @media (max-height: 799px) {
+    #navbarLeft, #navbarRight {
+        font-size: 20px;
+    }
     #navbarLeft {
         
     }
@@ -10,6 +13,9 @@
 
 /* desktop / tablet */
 @media (min-height: 800px) {
+    #navbarLeft, #navbarRight {
+        font-size: 2vh;
+    }
     #navbarLeft {
         
     }
@@ -24,10 +30,19 @@
     z-index: 100; 
     padding: 0;
     margin: 0;
+    color: #F0FFF1;
+    top: 0;
 }
 #navbarLeft {
     float: left;
+    left: 0;
 }
 #navbarRight {
-    float: right;
+    float: left;
+    right: 0;
+    text-align: right;
+}
+#navbarRight > button {
+    background: none;
+    border: none;
 }
