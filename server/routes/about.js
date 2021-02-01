@@ -60,10 +60,9 @@ aboutRouter.post('/admin/new', async (req, res, next) => {
             description
         });
         await about.save();
-        res.status(201).json({"id": about._id});
+        res.status(201).json({ "id": about._id });
     } catch {
-        let error = new Error("Could not create new About document in database");
-        return next(error);
+        next(new Error("Could not create new About document in database"));
     }
 })
 
