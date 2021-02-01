@@ -1,6 +1,5 @@
 const express = require('express');
 const mongoose = require("mongoose");
-const aboutModel = require('../models/about.model');
 const AboutModel = mongoose.model("About");
 
 const aboutRouter = express.Router();
@@ -92,7 +91,8 @@ aboutRouter.delete("/admin/id/:id", findById, async (req, res, next) => {
         await AboutModel.findByIdAndDelete(req.params.id);
         res.status(200).send(req.params.id);
     } catch {
-
+        next(new Error("Could not delete Object"));
     }
 })
+
 module.exports = aboutRouter;
