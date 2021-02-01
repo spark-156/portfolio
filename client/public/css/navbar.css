@@ -3,10 +3,8 @@
     #navbarLeft, #navbarRight {
     }
     #navbarLeft {
-        left: 0;
     }
     #navbarRight {
-        right: 0;
        
     }
 }
@@ -20,11 +18,9 @@
     #navbarLeft, #navbarRight {
     }
     #navbarLeft {   
-        float: left;
         width: inherit;
     }
     #navbarRight {
-        float: right;
         width: inherit;
     }
 }
@@ -40,9 +36,11 @@
     font-size: 20px;
 }
 #navbarLeft {
+    float: left;
     text-align: left;
 }
 #navbarRight {
+    float: right;
     text-align: right;
 }
 #navbarRight > button:hover {
