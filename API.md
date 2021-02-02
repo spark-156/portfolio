@@ -8,7 +8,7 @@ If a key/ value pair in a dict does not include the //optional behind it then it
 
 All api calls related to projects
 
-### GET /api/projects//all
+### GET /api/projects/all
 
 Returns all projects without the image attachment in the following format:
 ```
