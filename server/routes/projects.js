@@ -18,7 +18,6 @@ projectsRouter.get('/all', async (req, res, next) => {
 
 projectsRouter.get('/image/:id', async (req, res, next) => {
     try {
-        console.log(req.params.id)
         const project = await ProjectsModel.findById(req.params.id);
         if (!project > 0) return res.status(404).send("no image found");
         res.setHeader("content-type", project.image.mimetype);
@@ -28,13 +27,18 @@ projectsRouter.get('/image/:id', async (req, res, next) => {
     }
 });
 
-projectsRouter.get('/latest', (req, res, next) => {
-
+projectsRouter.get('/latest', async (req, res, next) => {
+    try {
+        const project = await ProjectsModel.find().limit(1).sort({$natural:-1}).select('-image');
+        if (!project > 0) return res.status(404).send("no project found");
+        res.status(200).send(project);
+    } catch {
+        next(new Error("Could not get project"));
+    }
 });
 
 projectsRouter.post('/admin/new', async (req, res, next) => {
     try {
-        console.log(req.files.image);
         const { title, description, company, startDate, endDate } =  req.body;
         if (!title || !description || !company || !startDate || !req.files || Object.keys(req.files).length === 0) {
             const error = new Error("Please send all required fields")
@@ -54,7 +58,6 @@ projectsRouter.post('/admin/new', async (req, res, next) => {
         let project = new ProjectsModel({
             title, description, company, startDate, endDate 
         });
-        console.log(project);
 
         const { data, mimetype } = req.files.image;
         project.image.data = data;
