@@ -102,3 +102,24 @@ Include a json in the body with all the fields you want to update:
 Deletes a project from the database
 
 `Example: /api/projects/id/60188fee30adf5035df6b54b`
+
+## /api/about/
+All api calls surrounding about
+### GET /api/about/all
+
+Gets all abouts
+### GET /api/about/latest
+
+Gets latest about
+
+### GET /api/about/id/:id
+Get a specific About by id
+
+### POST /api/about/new
+Upload a new About
+
+### PUT /api/about/id/:id
+Update a specific about
+
+### DELETE /api/about/id/:id
+Delete a specific about
