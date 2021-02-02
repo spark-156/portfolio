@@ -4,41 +4,19 @@ const ProjectsModel = mongoose.model("Projects");
 
 const projectsRouter = express.Router();
 
-// Hello World route
-projectsRouter.get('/all', async (req, res, next) => {
-    try {
-        const projects = await ProjectsModel.find().select('-image');
-        if (!projects.length > 0) return res.status(404).send("No projects found");
-        res.status(200).send(projects);
-    } catch {
-        const error = new Error("Could not get all projects");
-        next(error);
-    }
-});
-
-projectsRouter.get('/image/:id', async (req, res, next) => {
+projectsRouter.use('/id/:id', async (req, res, next) => {
     try {
         const project = await ProjectsModel.findById(req.params.id);
-        if (!project > 0) return res.status(404).send("no image found");
-        res.setHeader("content-type", project.image.mimetype);
-        res.status(200).send(project.image.data);
+        if (!project > 0) return res.status(404).send("No project found");
+        req.foundProject = project;
+        next();
     } catch {
-        next(new Error("Could not get image"));
+        next(new Error("Could not find project"));
     }
-});
+})
 
-projectsRouter.get('/latest', async (req, res, next) => {
-    try {
-        const project = await ProjectsModel.find().limit(1).sort({$natural:-1}).select('-image');
-        if (!project > 0) return res.status(404).send("no project found");
-        res.status(200).send(project);
-    } catch {
-        next(new Error("Could not get project"));
-    }
-});
-
-projectsRouter.post('/admin/new', async (req, res, next) => {
-    try {
+const requiredProjectParams = (req, res, next) => {
+    try{
         const { title, description, company, startDate, endDate } =  req.body;
         if (!title || !description || !company || !startDate || !req.files || Object.keys(req.files).length === 0) {
             const error = new Error("Please send all required fields")
@@ -62,19 +40,83 @@ projectsRouter.post('/admin/new', async (req, res, next) => {
         const { data, mimetype } = req.files.image;
         project.image.data = data;
         project.image.mimetype = mimetype;
-        await project.save();
+        req.newProject = project;
+        return next();
+    } catch {
+        const error = new Error("Not all required params were satisfied");
+        error.status = 400;
+        next(error);
+    }
+};
+
+// Hello World route
+projectsRouter.get('/all', async (req, res, next) => {
+    try {
+        const projects = await ProjectsModel.find().select('-image');
+        if (!projects.length > 0) return res.status(404).send("No projects found");
+        res.status(200).send(projects);
+    } catch {
+        const error = new Error("Could not get all projects");
+        next(error);
+    }
+});
+
+projectsRouter.get('/id/image/:id', async (req, res, next) => {
+    try {
+        res.setHeader("content-type", req.foundProject.image.mimetype);
+        res.status(200).send(req.foundProject.image.data);
+    } catch {
+        next(new Error("Could not get image"));
+    }
+});
+
+projectsRouter.get('/latest', async (req, res, next) => {
+    try {
+        const project = await ProjectsModel.find().limit(1).sort({$natural:-1}).select('-image');
+        if (!project > 0) return res.status(404).send("no project found");
+        res.status(200).send(project);
+    } catch {
+        next(new Error("Could not get project"));
+    }
+});
+
+projectsRouter.post('/new', requiredProjectParams, async (req, res, next) => {
+    try {
+        await req.project.save();
         res.status(201).json({ "id": project._id });
     } catch {
         next(new Error("Could not create new project"));
     }
 })
 
-projectsRouter.put('/admin/id/:id', (req, res, next) => {
-
+projectsRouter.put('/id/:id', async (req, res, next) => {
+    // TODO Fix this api call!
+    try {
+        const project = req.body;
+        if (req.files.image) {
+            const { data, mimetype } = req.files.image;
+            project.image.data = data;
+            project.image.mimetype = mimetype;
+        }
+        const updatedProject = await ProjectsModel.findByIdAndUpdate(req.params.id, project, { useFindAndModify: false })
+        if (!updatedProject) {
+            const error = new Error(`Cannot find and update About object with id:${req.params.id}`);
+            error.status = 404;
+            return next(error) 
+        }
+        res.status(200).send();
+    } catch {
+        next(new Error("Could not update project"));
+    }
 })
 
-projectsRouter.delete('/admin/id/:id', (req, res, next) => {
-
+projectsRouter.delete('/id/:id', async (req, res, next) => {
+    try {
+        await ProjectsModel.findByIdAndDelete(req.params.id);
+        res.status(200).send()
+    } catch {
+        next(new Error("Could not delete project"));
+    }
 })
 
 module.exports = projectsRouter;
