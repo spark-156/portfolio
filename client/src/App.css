@@ -1,0 +1,16 @@
+body {
+    margin: 0;
+    
+    font-family: Sans-Serif;
+    color: #F0FFF1;
+
+    background-image: url("./images/woodFloor.jpeg");
+    background-size: contain;
+}
+
+#root {
+    /* Set coloured transparent background overlay  */
+    background-color: rgba(90, 142, 175, 0.7);
+    /* Change value below to better one */
+    height: 100vh;
+}

@@ -1,6 +1,8 @@
 import React, { lazy, Suspense } from "react";
 import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
+
 import Navbar from "./components/Navbar";
+import './App.css';
 
 // pages
 const Home = lazy(() => import("./routes/Home"));

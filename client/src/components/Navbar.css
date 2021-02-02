@@ -1,9 +1,15 @@
 .nav-container {
-    width: 100%
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    z-index: 2;
 }
 
 .nav-unordered-list {
     list-style-type: none;
+    display: flex;
 }
 
 .nav-list-item {
@@ -12,5 +18,10 @@
 }
 
 .nav-list-item a {
+    color: inherit;
+    text-decoration: none;
+}
+.nav-list-item a:visited {
+    color: inherit;
     text-decoration: none;
 }
