@@ -7,14 +7,24 @@ const projectsRouter = express.Router();
 // Hello World route
 projectsRouter.get('/all', async (req, res, next) => {
     try {
-        const projects = await ProjectsModel.find();
-        if (!projects.length > 0) {
-            return res.status(404).send("No projects found")
-        }
+        const projects = await ProjectsModel.find().select('-image');
+        if (!projects.length > 0) return res.status(404).send("No projects found");
         res.status(200).send(projects);
     } catch {
         const error = new Error("Could not get all projects");
         next(error);
+    }
+});
+
+projectsRouter.get('/image/:id', async (req, res, next) => {
+    try {
+        console.log(req.params.id)
+        const project = await ProjectsModel.findById(req.params.id);
+        if (!project > 0) return res.status(404).send("no image found");
+        res.setHeader("content-type", project.image.mimetype);
+        res.status(200).send(project.image.data);
+    } catch {
+        next(new Error("Could not get image"));
     }
 });
 
