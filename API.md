@@ -4,7 +4,7 @@ All api calls to the backend begin with "/api/".
 
 If a key/ value pair in a dict does not include the //optional behind it then it is *required*.
 
-## /api/projects/
+# /api/projects/
 
 All api calls related to projects
 
@@ -103,7 +103,7 @@ Deletes a project from the database
 
 `Example: /api/projects/id/60188fee30adf5035df6b54b`
 
-## /api/about/
+# /api/about/
 All api calls surrounding about
 ### GET /api/about/all
 
@@ -123,3 +123,22 @@ Update a specific about
 
 ### DELETE /api/about/id/:id
 Delete a specific about
+
+## /api/images/
+All image api calls
+
+### GET /api/images/all
+Get all images excluding image data
+
+### GET /api/images/id/:id
+Get a specific image
+### GET /api/images/latest
+Get latest added image
+### POST /api/images/new
+Upload new image
+
+### PUT /api/images/id/:id
+Update specific image
+
+### DELETE /api/image/id/:id
+Delete specific image
