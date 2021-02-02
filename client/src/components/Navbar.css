@@ -1,0 +1,16 @@
+.nav-container {
+    width: 100%
+}
+
+.nav-unordered-list {
+    list-style-type: none;
+}
+
+.nav-list-item {
+    margin: 0 10px;
+    padding: 0 1rem;
+}
+
+.nav-list-item a {
+    text-decoration: none;
+}
