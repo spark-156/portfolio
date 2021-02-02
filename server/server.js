@@ -35,6 +35,10 @@ app.use('/api/projects', projectsRouter);
 const aboutRouter = require('./routes/about');
 app.use("/api/about", aboutRouter);
 
+// Import and init images route
+const imagesRouter = require('./routes/images');
+app.use("/api/images", imagesRouter);
+
 // Error handling middleware
 app.use((err, req, res, next) => {
   status = err.status || 500;
