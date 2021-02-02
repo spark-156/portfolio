@@ -50,7 +50,7 @@ aboutRouter.get('/latest', async (req, res, next) => {
     }
 })
 
-aboutRouter.post('/admin/new', async (req, res, next) => {
+aboutRouter.post('/new', async (req, res, next) => {
     // Add a new about description 
     try {
         const { name, description } = req.body;
@@ -66,12 +66,9 @@ aboutRouter.post('/admin/new', async (req, res, next) => {
     }
 })
 
-aboutRouter.put("/admin/id/:id", findById, async (req, res, next) => {
+aboutRouter.put("/id/:id", findById, async (req, res, next) => {
     // Update a specific about description 
     try {
-        if (!req.body.name || !req.body.description) {
-            res.status(400).send("Please send a 'name' and a 'description' field of string types")
-        }
         const about = await AboutModel.findByIdAndUpdate(req.params.id, req.body, { useFindAndModify: false })
         if (!about) {
             const error = new Error(`Cannot find and update About object with id:${req.params.id}`);
@@ -84,7 +81,7 @@ aboutRouter.put("/admin/id/:id", findById, async (req, res, next) => {
     }
 })
 
-aboutRouter.delete("/admin/id/:id", findById, async (req, res, next) => {
+aboutRouter.delete("/id/:id", findById, async (req, res, next) => {
     try {
         await AboutModel.findByIdAndDelete(req.params.id);
         res.status(200).send(req.params.id);
