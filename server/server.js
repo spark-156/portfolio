@@ -4,16 +4,13 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const fileuploader = require("express-fileupload");
 
-
 const db = require("./models/index");
-
-// Set up default mongodb connection
-
-
 
 const PORT = process.env.port || 5000;
 
 const app = express();
+
+// TODO express basic auth middleware
 
 // Logging middleware
 app.use(morgan('dev'));
