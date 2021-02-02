@@ -15,7 +15,7 @@ const validateImage = (req, res, next) => {
         return res.status(400).send(`Mimetype is not in ["jpg", "jpeg", "png"]`);
     }
     next();
-}
+};
 
 imageRouter.get('/all', async (req, res, next) => {
     try {
@@ -24,7 +24,7 @@ imageRouter.get('/all', async (req, res, next) => {
     } catch {
         next(new Error("Could not get all images"));
     }
-})
+});
 
 imageRouter.get('/latest', async (req, res, next) => {
     try {
@@ -35,7 +35,7 @@ imageRouter.get('/latest', async (req, res, next) => {
     } catch {
         next(new Error("Could not retreive image due to an internal server error"));
     }
-})
+});
 
 imageRouter.get('/id/:id', async (req, res, next) => {
     try {
@@ -46,7 +46,7 @@ imageRouter.get('/id/:id', async (req, res, next) => {
     } catch {
         next(new Error("Could not retreive image due to an internal server error"))
     }
-})
+});
 
 imageRouter.post('/new', validateImage, async (req, res, next) => {
     try {
@@ -62,7 +62,7 @@ imageRouter.post('/new', validateImage, async (req, res, next) => {
     } catch {
         next(new Error("Could not upload new image"));
     }
-})
+});
 
 imageRouter.delete('/id/:id', async (req, res, next) => {
     // TODO make it so you can update the alt only too
@@ -72,7 +72,7 @@ imageRouter.delete('/id/:id', async (req, res, next) => {
     } catch {
         next(new Error("Could not upload new image"));
     }
-})
+});
 
 imageRouter.put('/id/:id', validateImage, async (req, res, next) => {
     try {
@@ -88,6 +88,6 @@ imageRouter.put('/id/:id', validateImage, async (req, res, next) => {
     } catch {
         next(new Error("Could not update image"));
     }
-})
+});
 
 module.exports = imageRouter;

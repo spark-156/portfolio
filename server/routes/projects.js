@@ -13,9 +13,10 @@ projectsRouter.use('/id/:id', async (req, res, next) => {
     } catch {
         next(new Error("Could not find project"));
     }
-})
+});
 
 const requiredProjectParams = (req, res, next) => {
+    // TODO Fix up this ugly middleware
     try{
         const { title, description, company, startDate, endDate } =  req.body;
         if (!title || !description || !company || !startDate || !req.files || Object.keys(req.files).length === 0) {
@@ -82,12 +83,13 @@ projectsRouter.get('/latest', async (req, res, next) => {
 
 projectsRouter.post('/new', requiredProjectParams, async (req, res, next) => {
     try {
-        await req.project.save();
+        const project = new ProjectsModel(req.newProject);
+        await project.save();
         res.status(201).json({ "id": project._id });
     } catch {
         next(new Error("Could not create new project"));
     }
-})
+});
 
 projectsRouter.put('/id/:id', async (req, res, next) => {
     // TODO Fix this api call!
@@ -108,7 +110,7 @@ projectsRouter.put('/id/:id', async (req, res, next) => {
     } catch {
         next(new Error("Could not update project"));
     }
-})
+});
 
 projectsRouter.delete('/id/:id', async (req, res, next) => {
     try {
@@ -117,6 +119,6 @@ projectsRouter.delete('/id/:id', async (req, res, next) => {
     } catch {
         next(new Error("Could not delete project"));
     }
-})
+});
 
 module.exports = projectsRouter;

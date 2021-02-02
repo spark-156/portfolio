@@ -31,12 +31,12 @@ aboutRouter.get('/all', async (req, res, next) => {
         let error = new Error("Could not get all about documents from database");
         return next(error);
     }
-})
+});
 
 aboutRouter.get('/id/:id', findById, (req, res, next) => {
     // Get a specific about by ID
     res.status(200).send(req.about);
-})
+});
 
 aboutRouter.get('/latest', async (req, res, next) => {
     // Get latest ADDED about description 
@@ -48,7 +48,7 @@ aboutRouter.get('/latest', async (req, res, next) => {
         let error = new Error("Could not get latest about document from database");
         return next(error);
     }
-})
+});
 
 aboutRouter.post('/new', async (req, res, next) => {
     // Add a new about description 
@@ -64,7 +64,7 @@ aboutRouter.post('/new', async (req, res, next) => {
     } catch {
         next(new Error("Could not create new About document in database"));
     }
-})
+});
 
 aboutRouter.put("/id/:id", findById, async (req, res, next) => {
     // Update a specific about description 
@@ -79,7 +79,7 @@ aboutRouter.put("/id/:id", findById, async (req, res, next) => {
     } catch {
         next(new Error("Could not update About object"));
     }
-})
+});
 
 aboutRouter.delete("/id/:id", findById, async (req, res, next) => {
     try {
@@ -88,6 +88,6 @@ aboutRouter.delete("/id/:id", findById, async (req, res, next) => {
     } catch {
         next(new Error("Could not delete Object"));
     }
-})
+});
 
 module.exports = aboutRouter;
