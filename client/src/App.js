@@ -1,34 +1,37 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from 'react';
 
-function App() {
-  const [apiCallResponse, setApiCallResponse] = useState(null);
-  const [selectedApi, setSelectedApi] = useState('/api/projects/helloworld');
+import { Navbar } from './components/Navbar';
+import { AboutPage } from './components/AboutPage';
+
+import { useFetch } from './lib/apiHandler';
+
+// Ant Design imports
+import { Spin } from 'antd';
+import 'antd/dist/antd.css';
+
+export default function App() {
+  const [about, setAbout] = useState(null);
+  const [loading, setLoading] = useState({ loading: true });
+
+  const tempAbout = useFetch('/api/about/');
 
   useEffect(() => {
-    async function fetchApi() {
-      const res = await fetch(selectedApi);
-      const body = await res.json();
-      if (res.status !== 200) {throw Error(body.message)}
-      setApiCallResponse(body.message);
+    if (tempAbout !== null) {
+      setAbout(tempAbout);
+      setLoading({ loading: false });
     }
-    fetchApi();
-  }, [selectedApi]);
+  }, [tempAbout]);
 
-  function handleApiSelectorChange({ target }) {
-    setSelectedApi(target.value);
-    console.log(selectedApi);
-  }
+  const containerLoading = (<div class="background">
+    <Spin size="large" id="spinner" style={{position: "absolute", top: "50%", left: "50%"}}/>
+    </div>);
 
-  return (
-    <div>
-      <h1>Welcome to React!</h1>
-      <div>{apiCallResponse}</div>
-      <select onChange={handleApiSelectorChange}>
-        <option value="/api/projects/helloworld">helloworld yes</option>
-        <option value="/api/projects/express_backend">express</option>
-      </select>
-    </div>
-  );
-}
 
-export default App;
+  const containerLoaded = (<div class="background">
+    <Navbar about={about} />
+    <AboutPage about={about} />
+  </div>);
+
+  return loading.loading ? containerLoading : containerLoaded;
+};
