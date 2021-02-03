@@ -14,3 +14,14 @@ html, body {
     /* Change value below to better one */
     height: 100vh;
 }
+
+@media (min-width: 1200px) {
+    .responsive {
+       width: 1200px;
+       margin: 0 auto;
+    }
+}
+
+.responsive {
+    height: 100hv;
+}
