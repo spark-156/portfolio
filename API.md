@@ -27,7 +27,7 @@ Returns all projects without the image attachment in the following format:
  ]
  ```
  
-### GET /api/projects/id/image/:id
+### GET /api/projects/id/:id/image
  
 Returns a single image from a single project found by ID paramater in the string.
 
