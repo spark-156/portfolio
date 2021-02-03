@@ -35,12 +35,12 @@ const App = () => {
           <Route path="/" exact >
             <div>
               <MediaQuery maxDeviceWidth={mobileWidth}>
-                <Row id="Home" class="responsive">
+                <Row id="Home" className="responsive">
                   <Col span={24}><Home isMobile={isMobile} mobileWidth={mobileWidth} loading={loading} setLoading={setLoading} /></Col>
                 </Row>
               </MediaQuery>
               <MediaQuery minDeviceWidth={mobileWidth}>
-                <Row id="Home" class="responsive">
+                <Row id="Home" className="responsive">
                   <Col span={4} />
                   <Col span={16}><Home isMobile={isMobile} mobileWidth={mobileWidth} loading={loading} setLoading={setLoading} /></Col>
                   <Col span={4} />
@@ -48,15 +48,15 @@ const App = () => {
               </MediaQuery>
             </div>
           </Route>
-          <Route path="/projects" component={Projects} >
+          <Route path="/projects" exact >
           <div>
               <MediaQuery maxDeviceWidth={mobileWidth}>
-                <Row id="Projects" class="responsive">
+                <Row id="Projects" className="responsive">
                   <Col span={24}><Projects isMobile={isMobile} mobileWidth={mobileWidth} loading={loading} setLoading={setLoading} /></Col>
                 </Row>
               </MediaQuery>
               <MediaQuery minDeviceWidth={mobileWidth}>
-                <Row id="Projects" class="responsive">
+                <Row id="Projects" className="responsive">
                   <Col span={4} />
                   <Col span={16}><Projects isMobile={isMobile} mobileWidth={mobileWidth} loading={loading} setLoading={setLoading} /></Col>
                   <Col span={4} />
