@@ -62,7 +62,15 @@ projectsRouter.get('/all', async (req, res, next) => {
     }
 });
 
-projectsRouter.get('/id/image/:id', async (req, res, next) => {
+projectsRouter.get('/id/:id', async (req, res, next) => {
+    try {
+        res.status(200).send(req.foundProject);
+    } catch {
+        next(new Error("Could not get project"))
+    }
+})
+
+projectsRouter.get('/id/:id/image', async (req, res, next) => {
     try {
         res.setHeader("content-type", req.foundProject.image.mimetype);
         res.status(200).send(req.foundProject.image.data);
