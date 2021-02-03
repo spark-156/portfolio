@@ -8,13 +8,10 @@ import './Loading.css';
 
 
 export default function Home({ isMobile, mobileWidth, setLoading, loading }) {
-    const [images, setImages] = useState(null);
-    const [about, setAbout] = useState(null);
-    
-    //TODO fix crash upon switching to mobile or desktop size
+    const [images, setImages] = useState([{}]);
+    const [about, setAbout] = useState([{name: "", description:""}]);
 
     useEffect(() => {
-        setLoading(true);
         const getAbout = () => {
             fetch('/api/about/latest')
                 .then(res => { return res.json() })
@@ -27,9 +24,9 @@ export default function Home({ isMobile, mobileWidth, setLoading, loading }) {
         }
         getAbout();
         getImages();
-    }, [setLoading, isMobile]);
-
-    return loading ? <Spin size="large" id="loading" /> : (
+    }, []);
+    
+    return loading ? <Spin id="loading"/> : (
         <div>
             <div id="name">{about[0].name}</div>
             <div id="description">{about[0].description}</div>

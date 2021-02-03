@@ -19,10 +19,14 @@ const Contact = lazy(() => import("./routes/Contact"));
 const App = () => {
   const [loading, setLoading] = useState(true);
   const mobileWidth = 1200;
-  
+
   const isMobile = useMediaQuery({
     query: `(min-device-width: ${mobileWidth})`
   })
+  console.log(`isMobile: ${isMobile}`);
+  useEffect(() => {
+    setLoading(true)
+  }, [isMobile]) 
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
