@@ -1,0 +1,36 @@
+@media (min-width: 1200px) {
+    #Home {
+        width: 1200px;
+        margin: 0 auto;
+    }
+    #imageContainer {
+        width: inherit;
+        height: 50vh;
+        margin-top: 8vh;
+    }
+}
+
+@media (max-width: 1199px) {
+    #imageContainer {
+        max-height: 40vh;
+    }
+}
+
+#Home {
+    height: 100vh;
+    padding-top: 10vh;
+    text-align: center;
+}
+
+#name {
+    font-size: x-large;
+}
+
+#description {
+    font-size: xx-large;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}

@@ -1,6 +1,6 @@
-body {
+html, body {
     margin: 0;
-    
+    overflow: hidden;
     font-family: Sans-Serif;
     color: #F0FFF1;
 
