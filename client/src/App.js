@@ -1,6 +1,6 @@
 import React, { lazy, Suspense, useEffect, useState } from "react";
 import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
-import MediaQuery, { useMediaQuery }  from 'react-responsive'
+import MediaQuery, { useMediaQuery } from 'react-responsive'
 import { Row, Col } from 'antd';
 
 import Navbar from "./components/Navbar";
@@ -23,10 +23,9 @@ const App = () => {
   const isMobile = useMediaQuery({
     query: `(min-device-width: ${mobileWidth})`
   })
-  console.log(`isMobile: ${isMobile}`);
   useEffect(() => {
     setLoading(true)
-  }, [isMobile]) 
+  }, [isMobile])
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
@@ -49,8 +48,23 @@ const App = () => {
               </MediaQuery>
             </div>
           </Route>
+          <Route path="/projects" component={Projects} >
+          <div>
+              <MediaQuery maxDeviceWidth={mobileWidth}>
+                <Row id="Projects">
+                  <Col span={24}><Projects isMobile={isMobile} mobileWidth={mobileWidth} loading={loading} setLoading={setLoading} /></Col>
+                </Row>
+              </MediaQuery>
+              <MediaQuery minDeviceWidth={mobileWidth}>
+                <Row id="Projects">
+                  <Col span={4} />
+                  <Col span={16}><Projects isMobile={isMobile} mobileWidth={mobileWidth} loading={loading} setLoading={setLoading} /></Col>
+                  <Col span={4} />
+                </Row>
+              </MediaQuery>
+            </div>
+          </Route>
           <Route path="/admin" component={Admin} />
-          <Route path="/projects" component={Projects} />
           <Route path="/Contact" component={Contact} />
           <Route component={NotFoundPage} />
         </Switch>
