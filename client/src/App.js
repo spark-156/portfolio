@@ -35,12 +35,12 @@ const App = () => {
           <Route path="/" exact >
             <div>
               <MediaQuery maxDeviceWidth={mobileWidth}>
-                <Row id="Home">
+                <Row id="Home" class="responsive">
                   <Col span={24}><Home isMobile={isMobile} mobileWidth={mobileWidth} loading={loading} setLoading={setLoading} /></Col>
                 </Row>
               </MediaQuery>
               <MediaQuery minDeviceWidth={mobileWidth}>
-                <Row id="Home">
+                <Row id="Home" class="responsive">
                   <Col span={4} />
                   <Col span={16}><Home isMobile={isMobile} mobileWidth={mobileWidth} loading={loading} setLoading={setLoading} /></Col>
                   <Col span={4} />
@@ -51,12 +51,12 @@ const App = () => {
           <Route path="/projects" component={Projects} >
           <div>
               <MediaQuery maxDeviceWidth={mobileWidth}>
-                <Row id="Projects">
+                <Row id="Projects" class="responsive">
                   <Col span={24}><Projects isMobile={isMobile} mobileWidth={mobileWidth} loading={loading} setLoading={setLoading} /></Col>
                 </Row>
               </MediaQuery>
               <MediaQuery minDeviceWidth={mobileWidth}>
-                <Row id="Projects">
+                <Row id="Projects" class="responsive">
                   <Col span={4} />
                   <Col span={16}><Projects isMobile={isMobile} mobileWidth={mobileWidth} loading={loading} setLoading={setLoading} /></Col>
                   <Col span={4} />
