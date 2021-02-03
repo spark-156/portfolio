@@ -27,6 +27,26 @@ Returns all projects without the image attachment in the following format:
  ]
  ```
  
+### GET /api/projects/id/:id/
+Returns a single project found by id paramater
+ 
+`Example: /api/projects/image/60188fee30adf5035df6b54b`
+
+```
+ [
+   { 
+    title: String, 
+    description: String,
+    startDate: Date,
+    endDate: Date, //optional
+    company: String
+    _id: String,
+    createdAt: String,
+    updatedAt: String
+   }
+ ]
+```
+ 
 ### GET /api/projects/id/:id/image
  
 Returns a single image from a single project found by ID paramater in the string.
