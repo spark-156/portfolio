@@ -1,6 +1,6 @@
 html, body {
     margin: 0;
-    overflow: hidden;
+    overflow: scroll;
     font-family: Sans-Serif;
     color: #F0FFF1;
 
@@ -11,17 +11,21 @@ html, body {
 #root {
     /* Set coloured transparent background overlay  */
     background-color: rgba(90, 142, 175, 0.7);
-    /* Change value below to better one */
-    height: 100vh;
+    /* Make responsive to entire content */
+    height: 100%;
 }
 
+/* Desktop */
 @media (min-width: 1200px) {
-    .responsive {
-       width: 1200px;
-       margin: 0 auto;
-    }
+    
 }
 
-.responsive {
-    height: 100hv;
+/* Tablet */
+@media (min-width: 800px) and (max-width: 1200px) {
+
+}
+
+/* Phone  */
+@media (max-width: 480px) {
+    
 }

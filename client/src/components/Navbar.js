@@ -1,21 +1,14 @@
 import React from 'react';
 import "./Navbar.css";
 import { NavLink } from "react-router-dom";
+import { Space } from 'antd';
 
 export default function Navbar({ about }) {
     return (
-        <nav className="nav-container">
-            <ul className="nav-unordered-list">
-                <li className="nav-list-item">
-                    <NavLink to="/">Home</NavLink>
-                </li>
-                <li className="nav-list-item">
-                    <NavLink to="/Projects">Projects</NavLink>
-                </li>
-                <li className="nav-list-item">
-                    <NavLink to="/Contact">Contact</NavLink>
-                </li>
-            </ul>
-        </nav>
-    );
+        <Space id="navBar" align="center">
+            <NavLink id="navLink" to="/">Home</NavLink>
+            {/* <NavLink to="/Projects">Projects</NavLink> */}
+            <NavLink id="navLink" to="/contact">Contact</NavLink>
+        </Space>
+    )
 }
