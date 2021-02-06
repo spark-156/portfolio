@@ -5,11 +5,9 @@ import MediaQuery from 'react-responsive'
 import './Home.css';
 import './Loading.css';
 
-
-
 export default function Home({ isMobile, mobileWidth, setLoading, loading }) {
     const [images, setImages] = useState([{}]);
-    const [about, setAbout] = useState([{name: "", description:""}]);
+    const [about, setAbout] = useState([{ name: "", description: "" }]);
 
     useEffect(() => {
         const getAbout = () => {
@@ -25,23 +23,15 @@ export default function Home({ isMobile, mobileWidth, setLoading, loading }) {
         getAbout();
         getImages();
     }, []);
-    
-    return loading ? <Spin id="loading"/> : (
-        <div>
-            <div id="name">{about[0].name}</div>
-            <div id="description">{about[0].description}</div>
-            <MediaQuery minDeviceWidth={mobileWidth}>
-                <Image.PreviewGroup>
-                    <Row id="imageContainer">
-                        {images.slice(-4).map(image => { return <Col span={6}><Image width="100%" height="100%" alt={image.alt} src={`/api/images/id/${image._id}`} /></Col> })}
-                    </Row>
-                </Image.PreviewGroup>
-            </MediaQuery>
-            <MediaQuery maxDeviceWidth={mobileWidth}>
-                <Row id="imageContainer">
-                    <Col span={24}><Image width="100%" height="100%" alt={images[0].alt} src={`/api/images/id/${images[0]._id}`} /></Col>
-                </Row>
-            </MediaQuery>
-        </div>
+
+    return loading ? <Spin id="loading" /> : (
+        <section id="homePage">
+            <section id="homeContainer">
+                <img className="homeImage" src={`/api/images/latest`} alt="me" />
+                <p id="homeName">{about[0].name}</p>
+                <p id="homeDescription">{about[0].description}</p>
+            </section>
+
+        </section>
     )
 }

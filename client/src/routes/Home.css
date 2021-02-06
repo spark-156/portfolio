@@ -1,40 +1,34 @@
-@media (min-width: 1200px) {
-    #Home {
-        width: inherit;
-        margin: inherit;
-    }
-    #imageContainer {
-        width: inherit;
-        height: 50vh;
-    }
+
+/* Entire page section */
+#homePage {
+    padding: 20vh 0;
+    height: 100%;
 }
 
-@media (max-width: 1199px) {
-    #imageContainer {
-        height: 60vh;
-    }
-}
-
-#imageContainer {
-    margin-top: 8vh;
-}
-
-#Home {
-    height: inherit;
-    padding-top: 10vh;
+ /* Section container containing Name, desc, and imgs */
+#homeContainer {
+    height: 100%;
+    font-size: 2em;
+    position: relative;
     text-align: center;
+
 }
 
-#name {
-    font-size: x-large;
-}
-
-#description {
-    font-size: xx-large;
+#homeName, #homeDescription {
+    width: 100%;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
 }
 
+#homeName {
+    top: 25%;
+}
+
+#homeDescription {
+    top: 50%;
+}
+
+.homeImage {
+    opacity: 0.7;
+    height: 100%;
+    width: 100%;
+}
