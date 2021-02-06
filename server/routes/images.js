@@ -19,7 +19,7 @@ const validateImage = (req, res, next) => {
 
 imageRouter.get('/all', async (req, res, next) => {
     try {
-        const images = await ImagesModel.find().select('-image');
+        const images = await ImagesModel.find().select('-image').sort({$natural:-1});
         res.status(200).send(images);
     } catch {
         next(new Error("Could not get all images"));
