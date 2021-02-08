@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Card, Space, Image, Spin, Row, Col } from 'antd';
 
 import "./projects.css";
+import './Loading.css';
 
 const { Meta } = Card;
 
