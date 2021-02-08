@@ -1,0 +1,47 @@
+
+#projectPage {
+    height: fit-content;
+    padding: 0.1vh 2vw;
+}
+
+#projectContainer {
+    height: 100vh   ;
+}
+
+.projectCard {
+    margin-top: 5vh; 
+
+    /* Colors of projectCard */
+    background-color: #003452;
+    border-color: #DAA520;
+    border-width: 2px;
+    color: #F0FFF1;
+    height: 100%;
+    width: 100%;
+
+    /* Status position at bottom */
+    padding-bottom: 5vh;
+    position: relative;
+
+    /* Overflow word wrap */
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    z-index: 1;
+}
+
+.projectCardStatus {
+    position: absolute;
+    bottom: 0;
+}
+
+/* Golden border colour */
+.ant-card-cover > img {
+    margin: 1px;
+    padding-right: 2px;
+    min-height: 35vh;
+}
+
+/* Font colour inside the card */
+.ant-card-meta-title, .ant-card-meta-description {
+    color: #F0FFF1;
+}

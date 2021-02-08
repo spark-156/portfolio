@@ -1,7 +1,7 @@
 
 /* Entire page section */
 #homePage {
-    padding: 20vh 0;
+    padding: 15vh 0;
     height: 100%;
 }
 
@@ -11,7 +11,6 @@
     font-size: 2em;
     position: relative;
     text-align: center;
-
 }
 
 #homeName, #homeDescription {

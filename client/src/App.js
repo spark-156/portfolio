@@ -35,12 +35,14 @@ const App = () => {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <Router>
-        <Navbar /> 
+        <Navbar />
         <Switch>
           <Route path="/" exact >
-            <Home loadin={loading} setLoading={setLoading} />
+            <Home loading={loading} setLoading={setLoading} />
           </Route>
-          <Route path="/projects" component={Projects}/>
+          <Route path="/projects" >
+            <Projects loading={loading} setLoading={setLoading} />
+          </Route>
           <Route path="/admin" component={Admin} />
           <Route path="/contact" component={Contact} />
           <Route component={NotFoundPage} />
