@@ -43,8 +43,12 @@ const App = () => {
           <Route path="/projects" >
             <Projects loading={loading} setLoading={setLoading} />
           </Route>
+
+          <Route path="/contact" >
+            <Contact loading={loading} setLoading={setLoading} />
+          </Route>
+
           <Route path="/admin" component={Admin} />
-          <Route path="/contact" component={Contact} />
           <Route component={NotFoundPage} />
         </Switch>
       </Router>

@@ -1,5 +1,16 @@
 import React from 'react';
 
-export default function Contact() {
-    return <div id="Contact"></div>
+import { Spin } from 'antd';
+
+export default function Contact({ loading, setLoading }) {
+
+
+
+    return loading ? <Spin id="loading" /> : (
+        <section id="contactPage">
+            <section id="contactContainer">
+                
+            </section>
+        </section>
+    )
 }
