@@ -18,41 +18,9 @@ const Contact = lazy(() => import("./routes/Contact"));
 
 const App = () => {
   const [loading, setLoading] = useState(true);
-  const minDesktopWidth = 1000;
-  const minTabletWidth = 480;
-
-
-  const isTablet = useMediaQuery({
-    query: `(max-device-width: ${minDesktopWidth})`
-  })
-  const isDesktop = useMediaQuery({
-    query: `(min-device-width: ${minDesktopWidth})`
-  })
-  useEffect(() => {
-    setLoading(true)
-  }, [isTablet, isDesktop])
-
+  
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <Router>
-        <Navbar />
-        <Switch>
-          <Route path="/" exact >
-            <Home loading={loading} setLoading={setLoading} />
-          </Route>
-          <Route path="/projects" >
-            <Projects loading={loading} setLoading={setLoading} />
-          </Route>
-
-          <Route path="/contact" >
-            <Contact loading={loading} setLoading={setLoading} />
-          </Route>
-
-          <Route path="/admin" component={Admin} />
-          <Route component={NotFoundPage} />
-        </Switch>
-      </Router>
-    </Suspense>
+    <div>HelloWorld!</div>
   );
 };
 
