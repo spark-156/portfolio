@@ -1,33 +1,37 @@
 
-/* Entire page section */
-#homePage {
-    padding: 15vh 0;
-    height: 100%;
-}
-
- /* Section container containing Name, desc, and imgs */
-#homeContainer {
-    height: 100%;
-    font-size: 2em;
-    position: relative;
-    text-align: center;
-}
-
-#homeName, #homeDescription {
-    width: 100%;
-    position: absolute;
-}
-
-#homeName {
-    top: 25%;
-}
-
-#homeDescription {
-    top: 50%;
-}
-
-.homeImage {
-    opacity: 0.7;
+#gridContainer {
     height: 100%;
     width: 100%;
+    display: grid;
+}
+
+#helloWorld {
+
+}
+
+/* Full size painting aka desktop */
+@media screen and (min-width: 800px) {
+    #gridContainer {
+        /* 8 columns and 9 rows for a full size painting */
+        grid-template-columns: auto auto auto auto auto auto auto auto;
+        grid-template-rows: auto auto auto auto auto auto auto auto auto;
+    }
+}
+
+/* Half size painting aka tablet */
+@media screen and (min-width: 481px) and (max-width: 800px  ) {
+    #gridContainer {
+        /* 4 columns and 11 row for a half size painting */
+        grid-template-columns: auto auto auto auto;
+        grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto;
+    }
+}
+
+/* Quarter size painting aka phone  */
+@media screen and (max-width: 480px) {
+    #gridContainer {
+        /* 1 column and 12 rows for a quarter size painting */
+        grid-template-columns: auto;
+        grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto auto;
+    }
 }

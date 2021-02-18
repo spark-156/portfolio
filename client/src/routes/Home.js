@@ -25,13 +25,8 @@ export default function Home({ isMobile, mobileWidth, setLoading, loading }) {
     }, []);
 
     return loading ? <Spin id="loading" /> : (
-        <section id="homePage">
-            <section id="homeContainer">
-                <img className="homeImage" src={`/api/images/latest`} alt="me" />
-                <p id="homeName">{about[0].name}</p>
-                <p id="homeDescription">{about[0].description}</p>
-            </section>
-
+        <section id="gridContainer">
+            <div id="helloWorld">HelloWorld!</div>
         </section>
     )
 }

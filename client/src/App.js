@@ -12,15 +12,22 @@ import './App.css';
 const Home = lazy(() => import("./routes/Home"));
 const Admin = lazy(() => import("./routes/Admin"));
 const NotFoundPage = lazy(() => import("./routes/NotFoundPage"));
-const Projects = lazy(() => import("./routes/Projects"));
-const Contact = lazy(() => import("./routes/Contact"));
-
 
 const App = () => {
   const [loading, setLoading] = useState(true);
   
   return (
-    <div>HelloWorld!</div>
+    <Router>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Switch>
+          <Route exact path="/" >
+            <Home setLoading={setLoading} loading={loading} />
+          </Route>
+          <Route path="/admin" component={Admin} />
+          <Route path="*" component={NotFoundPage} />
+        </Switch>
+      </Suspense>
+    </Router>
   );
 };
 
