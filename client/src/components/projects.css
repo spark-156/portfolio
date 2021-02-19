@@ -1,46 +1,40 @@
-
-#projectPage {
-    padding: 0.1vh 2vw;
+#projectsTop, #projectsBottom {
+    color: #ffffff;
 }
 
-#projectContainer {
-    height: 100vh   ;
+#projectsTop {
+    display: grid;
+    grid-template-columns: 2fr 1.3fr;
+    grid-template-rows: auto;
 }
 
-.projectCard {
-    margin-top: 5vh; 
+#projectsBottom {
+    padding: 0 1vw;
+}
 
-    /* Colors of projectCard */
-    background-color: #003452;
-    border-color: #DAA520;
-    border-width: 2px;
-    color: #F0FFF1;
+#projectImage, #projectImageCover {
+    grid-row: 1;
+    grid-column: 1;
     height: 100%;
     width: 100%;
+}
 
-    /* Status position at bottom */
-    padding-bottom: 5vh;
-    position: relative;
+#projectImage {
+    object-fit: cover;
+}
 
-    /* Overflow word wrap */
-    overflow-wrap: break-word;
-    word-wrap: break-word;
+#projectImageCover {
     z-index: 1;
+    background-color: rgba(221, 1, 0, 0.55);
 }
 
-.projectCardStatus {
-    position: absolute;
-    bottom: 0;
+#projectCover {
+    padding: 1vh 0;
+    text-align: center;
+    grid: 2 / 2;
 }
 
-/* Golden border colour */
-.ant-card-cover > img {
-    margin: 1px;
-    padding-right: 2px;
-    min-height: 35vh;
-}
-
-/* Font colour inside the card */
-.ant-card-meta-title, .ant-card-meta-description {
-    color: #F0FFF1;
+#projectCover > h2 {
+    /* Explicitely set color of title because otherwise it wont apply */
+    color: #ffffff;
 }

@@ -3,13 +3,14 @@ import { Card, Space, Image, Spin, Row, Col } from 'antd';
 
 import "./projects.css";
 
-const { Meta } = Card;
-
-export default function Projects({ setLoading, loading }) {
+export default function Projects() {
     const [projects, setProjects] = useState([]);
+    const [loading, setLoading] = useState(true)
+
+
 
     useEffect(() => {
-        const getProjects = () => {
+        const getProjects = async () => {
             fetch('/api/projects/all')
                 .then(res => { return res.json() })
                 .then(projects => { setProjects(projects); setLoading(false) })
@@ -17,12 +18,25 @@ export default function Projects({ setLoading, loading }) {
         getProjects();
     }, []);
 
-    //TODO import and use swiper instead of horizontal scrolling
+    useEffect(() => {
+        console.log("projects", projects)
+    }, [projects])
 
+    // TODO update Spin loading to better fit inside the painting
     return loading ? <Spin id="loading" /> : (
         <>
-        <div id="projectsTop" className="blackBorder" >hello projects top</div>
-        <div id="projectsBottom" className="blackBorder">hello projects bottom</div>
+            <div id="projectsTop" className="blackBorder">
+                <img id="projectImage" src={`/api/projects/id/${projects[0]._id}/image`} />
+                <div id="projectImageCover" />
+                <div id="projectCover">
+                    <h2>{projects[0].title}</h2>
+                    <br />
+                    <p>{new Date(projects[0].startDate).toDateString()}</p>
+                    <p>{projects[0].endDate ? new Date(projects[0].endDate).toLocaleString() : "Ongoing"}</p>
+                    <p>{projects[0].company}</p>
+                </div>
+            </div>
+            <div id="projectsBottom" className="blackBorder">{projects[0].description}</div>
         </>
         // <section id="projectPage">
         //     <section id="projectContainer">
