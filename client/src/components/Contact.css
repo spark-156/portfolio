@@ -1,0 +1,13 @@
+#contactDetails {
+    color: #F0FFF1;
+}
+
+#contact {
+    padding: 0;
+    text-align: center;
+    font-size: 1.3em;
+}
+
+.contactLink:link, .contactLink:visited {
+    color: #F0FFF1;
+}

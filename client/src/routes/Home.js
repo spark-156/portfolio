@@ -1,32 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { Image, Spin, Row, Col } from 'antd';
-import MediaQuery from 'react-responsive'
+
+import About from '../components/About';
+import Projects from '../components/Projects';
+import Contact from '../components/Contact';
+import Skills from '../components/Skills';
 
 import './Home.css';
-import './Loading.css';
+import '../css/Loading.css';
 
-export default function Home({ isMobile, mobileWidth, setLoading, loading }) {
-    const [images, setImages] = useState([{}]);
-    const [about, setAbout] = useState([{ name: "", description: "" }]);
+export default function Home({ setLoading, loading }) {
 
-    useEffect(() => {
-        const getAbout = () => {
-            fetch('/api/about/latest')
-                .then(res => { return res.json() })
-                .then(about => { setAbout(about) })
-        }
-        const getImages = () => {
-            fetch('/api/images/all')
-                .then(res => { return res.json() })
-                .then(images => { setImages(images); setLoading(false) })
-        }
-        getAbout();
-        getImages();
-    }, []);
-
-    return loading ? <Spin id="loading" /> : (
-        <section id="gridContainer">
-            <div id="helloWorld">HelloWorld!</div>
+    return (
+        <section id="gridContainer" style={{aspectRatio: 1 / 1}}>
+            <div id="d1" className="blackBorder"/><div className="blackBorder" id="d2"/><div className="blackBorder"id="d3"/><div className="blackBorder"id="d4"/><div className="blackBorder"id="d5"/><div className="blackBorder"id="d6"/><div className="blackBorder"id="d7"/><div className="blackBorder"id="d8"/><div className="blackBorder" id="d9"/><div className="blackBorder"id="d10"/><div className="blackBorder"id="d11"/><div className="blackBorder"id="d12"/><div className="blackBorder" id="d13"/><div id="d14" className="blackBorder"/><div id="d15" className="blackBorder"/><div id="d16" className="blackBorder"/><div id="d17" className="blackBorder"/>
+            <About loading={loading} setLoading={setLoading} />
+            <Projects loading={loading} setLoading={setLoading} />
+            <Contact />
+            <Skills />
         </section>
     )
 }
