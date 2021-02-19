@@ -4,7 +4,8 @@ import { Spin } from 'antd';
 
 import './About.css';
 
-export default function About({ loading, setLoading }) {
+export default function About() {
+    const [loading, setLoading] = useState(true);   
     const [images, setImages] = useState([{}]);
     const [about, setAbout] = useState([{ name: "", description: "" }]);
 
