@@ -23,14 +23,21 @@ export default function About({ loading, setLoading }) {
         getImages();
     }, []);
 
+    useEffect(() => {
+        console.log("About and images:", about, images);
+    }, [about, images])
+
     return loading ? <Spin id="loading" /> : (
         <>
-        <section id="aboutTop" className="blackBorder">
-            <div>Luca Bergman</div>
-        </section>
-        <section id="aboutBottom" className="blackBorder">
-            <div>Luca Bergman 2</div>
-        </section>
+            <section id="aboutTop" className="blackBorder">
+                <div id="aboutTopName">{about[0].name}</div>
+            </section>
+            <section id="aboutBottom" className="blackBorder">
+                <img id="aboutImage" alt={images[0].alt} src={`/api/images/id/${images[0]._id}`} />
+                <div id="aboutDescriptionBackground">
+                    <div id="aboutDescription">{about[0].description}</div>
+                </div>
+            </section>
         </>
     )
 }
