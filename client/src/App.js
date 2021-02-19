@@ -2,6 +2,7 @@ import React, { lazy, Suspense, useEffect, useState } from "react";
 import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
 
 import 'antd/dist/antd.css';
+import 'swiper/swiper.scss';
 
 import './App.css';
 
