@@ -6,37 +6,28 @@ import "./Skills.css";
 const { Meta } = Card;
 
 export default function Projects({ setLoading, loading }) {
-    // const [projects, setProjects] = useState([]);
+    const [skills, setSkills] = useState([{ skill: "Javascript", percentage: 50 }, { skill: "Python", percentage: 50 }]);
 
-    // useEffect(() => {
-    //     const getProjects = () => {
-    //         fetch('/api/projects/all')
-    //             .then(res => { return res.json() })
-    //             .then(projects => { setProjects(projects); setLoading(false) })
-    //     }
-    //     getProjects();
-    // }, []);
+    useEffect(() => {
+        const getSkills = () => {
+            fetch('/api/skills/all')
+                .then(res => { return res.json() })
+                .then(skills => { setSkills(skills); setLoading(false) })
+        }
+        // getSkills();
+    }, []);
 
     //TODO import and use swiper instead of horizontal scrolling
 
     return loading ? <Spin id="loading" /> : (
-        <div id="skills" className="blackBorder">Javascript 50%</div>
-        // <section id="projectPage">
-        //     <section id="projectContainer">
-        //         {projects.map(project => {
-        //             return (
-        //                 <Card className="projectCard"
-        //                 key={project._id}
-        //             onClick={handleOpenCard}
-        //             cover={<img alt="project" src={`/api/projects/id/${project._id}/image`} />}
-        //         >
-        //             {/* <h2 className="projectCardTitle">{project.title}</h2>
-        //             <p className="projectCardDescription">{project.description}</p> */}
-        //             <Meta title={project.title} description={project.description} />
-        //             <p className="projectCardStatus">Status: {project.endDate ? "Finished" : "In progress"}</p>
-        //         </Card>)
-        //         })}
-        //     </section>
-        // </section>
+        <div id="skills" className="blackBorder">
+            {skills.map(skill => {
+                return (
+                    <div>
+                        {skill.skill}: {skill.percentage}%
+                    </div>
+                )
+            })}
+        </div>
     )
 }
