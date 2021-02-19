@@ -1,11 +1,19 @@
 import React, { useState, useEffect } from 'react';
 
+// import swiper
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { EffectCube, Autoplay } from 'swiper';
+
+//import antd
 import { Spin } from 'antd';
 
 import './About.css';
 
+// init swiper
+SwiperCore.use([EffectCube, Autoplay]);
+
 export default function About() {
-    const [loading, setLoading] = useState(true);   
+    const [loading, setLoading] = useState(true);
     const [images, setImages] = useState([{}]);
     const [about, setAbout] = useState([{ name: "", description: "" }]);
 
@@ -28,17 +36,39 @@ export default function About() {
         console.log("About and images:", about, images);
     }, [about, images])
 
+    const cubeEffect = { shadow: false };
+    const autoplay = {
+        delay: 5000,
+        disableOnInteraction: false,
+    }
+
+
     return loading ? <Spin id="loading" /> : (
         <>
             <section id="aboutTop" className="blackBorder">
                 <div id="aboutTopName">{about[0].name}</div>
             </section>
-            <section id="aboutBottom" className="blackBorder">
-                <img id="aboutImage" alt={images[0].alt} src={`/api/images/id/${images[0]._id}`} />
-                <div id="aboutDescriptionBackground">
-                    <div id="aboutDescription">{about[0].description}</div>
-                </div>
-            </section>
+
+            <Swiper
+            style={{width: "100%"}}
+                id="aboutBottom"
+                className="blackBorder"
+                loop="true"
+                autoplay={autoplay}
+                effect="cube"
+                cubeEffect={cubeEffect}
+            >
+                {images.map(image => {
+                    return (
+                        <SwiperSlide>
+                            <img className="aboutImage" alt={image.alt} src={`/api/images/id/${image._id}`} />
+                            <div className="aboutDescriptionBackground">
+                                <div className="aboutDescription">{about[0].description}</div>
+                            </div>
+                        </SwiperSlide>
+                    )
+                })}
+            </Swiper>
         </>
     )
 }

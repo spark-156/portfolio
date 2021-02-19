@@ -1,17 +1,18 @@
 #aboutTop, #aboutBottom {
+    width: 100%;
     text-align: center;
     color: #ffffff;
     font-size: 1.5em;
     position: relative;
 }
 
-#aboutImage {
+.aboutImage {
     height: 100%;
     width: 100%;
     object-fit: cover;
 }
 
-#aboutDescriptionBackground {
+.aboutDescriptionBackground {
     background-color: rgba(250, 201, 1, 0.55);
     z-index: 1;
     width: 100%;
@@ -21,7 +22,7 @@
     left: 0;
 }
 
-#aboutDescription, #aboutTopName {
+.aboutDescription, #aboutTopName {
     position: absolute;
     top: 50%;
     left: 50%;

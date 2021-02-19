@@ -3,6 +3,8 @@ import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
 
 import 'antd/dist/antd.css';
 import 'swiper/swiper.scss';
+import 'swiper/components/autoplay';
+import 'swiper/components/effect-cube/effect-cube.scss';
 
 import './App.css';
 
@@ -13,7 +15,7 @@ const NotFoundPage = lazy(() => import("./routes/NotFoundPage"));
 
 const App = () => {
   const [loading, setLoading] = useState(true);
-  
+
   return (
     <Router>
       <Suspense fallback={<div>Loading...</div>}>
