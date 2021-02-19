@@ -1,8 +1,11 @@
-#contactDetails {
+.contactDetails {
     color: #F0FFF1;
 }
 
 #contact {
+    width: 100%;
+    overflow: hidden;
+    word-wrap: break-word;
     padding: 0;
     text-align: center;
     font-size: 1.3em;
