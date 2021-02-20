@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useEffect, useState } from "react";
+import React, { lazy, Suspense } from "react";
 import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
 
 import 'antd/dist/antd.css';
@@ -14,14 +14,13 @@ const Admin = lazy(() => import("./routes/Admin"));
 const NotFoundPage = lazy(() => import("./routes/NotFoundPage"));
 
 const App = () => {
-  const [loading, setLoading] = useState(true);
 
   return (
     <Router>
       <Suspense fallback={<div>Loading...</div>}>
         <Switch>
           <Route exact path="/" >
-            <Home setLoading={setLoading} loading={loading} />
+            <Home />
           </Route>
           <Route path="/admin" component={Admin} />
           <Route path="*" component={NotFoundPage} />
