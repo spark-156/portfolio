@@ -46,10 +46,10 @@ export default function Projects() {
                     return (
                         <SwiperSlide key={`project${index}`}>
                             <Row className="projectsTop">
-                                <Col span={14}>
+                                <Col className="projectsTopCol" span={14}>
                                     <img className="projectImage" src={`/api/projects/id/${project._id}/image`} alt="project" />
                                 </Col>
-                                <Col className="projectsText" span={10}>
+                                <Col className="projectsText projectsTopCol" span={10}>
                                     <br />
                                     <h2 className="projectsText">{project.title}</h2>
                                     <p>{(new Date(project.startDate)).toLocaleDateString()}</p>

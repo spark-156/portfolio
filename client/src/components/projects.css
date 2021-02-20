@@ -20,3 +20,7 @@
 .projectsBottom {
     padding: 0 0.5vw;
 }
+
+.projectsTopCol {
+    height: 100%;
+}
