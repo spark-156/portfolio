@@ -3,12 +3,21 @@
 }
 
 #contact {
+    position: relative;
     width: 100%;
     overflow: hidden;
     word-wrap: break-word;
     padding: 0;
     text-align: center;
     font-size: 1.3em;
+}
+
+#contactCenter {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
 
 .contactLink:link, .contactLink:visited {
