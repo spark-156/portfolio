@@ -16,7 +16,7 @@ export default function Projects({ setLoading, loading }) {
     }, []);
 
     return loading ? <Spin id="loading" /> : (
-        <div id="skills" style={{color: "#ffffff"}} className="blackBorder">
+        <div id="skills" style={{color: "#ffffff", backgroundColor: "#000000" }} className="blackBorder">
             {skills.map((skill, index) => { 
                 return (
                     <Row gutter={10}>
