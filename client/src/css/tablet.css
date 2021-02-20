@@ -1,0 +1,90 @@
+@media screen and (min-width: 481px) and (max-width: 1000px  ) {
+    #d1 {
+        grid-column: 1;
+        grid-row: 1 / 3;
+        border-left: 0;
+        border-top: 0;
+        background-color: #225095;
+    }
+    #d2 {
+        grid-area: 1 / 2 / 3 / 3;
+        border-top: 0;
+        border-right: 0;
+        border-bottom: 0;
+    }
+    #d3 {
+        grid-area: 1 / 3 / 3 / 3;
+        border-top: 0;
+        border-left: 0;
+    }
+    #d4 {
+        grid-area: 1 / 6 / 3 / 6;
+        border-top: 0;
+        border-right: 0;
+    }
+    #d5 {
+        grid-area: 3 / 1 / 3 / 1;
+        border-right: 0;
+        border-bottom: 0;
+        border-left: 0;
+    }
+    #d6 {
+        grid-area: 3 / 2 / 3 / 2;
+        border-top: 0;
+        border-left: 0;
+    }
+    #d7 {
+        grid-area: 3 / 3 / 3/ 3;
+    }
+    #d8 {
+        grid-area: 3 / 6 / 7 / 6;
+        border-right: 0;
+    }
+    #d9 {
+        grid-area: 4 / 1 / 6 / 1;
+        border-top: 0;
+        border-left: 0;
+    }
+    #d10 {
+        grid-area: 7 / 6 / 10 / 6;
+        border-right: 0;
+        background-color: #FAC901;
+    }
+    #d11 {
+        grid-area: 6 / 1 / 11 / 1;
+        border-left: 0;
+    }
+    #d12 {
+        grid-area: 9 / 4 / 11 / 4;
+    }
+    #d13 {
+        grid-area: 9 / 5 / 11 / 5;
+    }
+    #d14 {
+        grid-area: 11 / 1 / 14 / 1;
+        border-bottom: 0;
+        border-left: 0;
+        background-color: #DD0100;
+    }
+    #d15 {
+        grid-area: 12 / 2 / 12 / 4;
+        border-bottom: 0;
+    }
+    #d16 {
+        grid-area: 13 / 2/ 13 / 4;
+        border-top: 0;
+        border-right: 0;
+        border-bottom: 0;
+    }
+    #d17 {
+        grid-area: 13 / 4 / 13 / 6;
+        border-left: 0;
+        border-right: 0;
+        border-bottom: 0;
+    }
+    #d18 {
+        grid-area: 10 / 6 / 13 / 6;
+        border-right: 0;
+        border-bottom: 0;
+    }
+}

@@ -94,4 +94,7 @@
         grid-column: 5 / 7;
         grid-row: 6;
     }
+    #d18 {
+        display: none;
+    }
 }
