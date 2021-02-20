@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
-// import swiper
-import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { EffectCube, Autoplay } from 'swiper';
-
 //import antd
 import { Spin } from 'antd';
 
 import './About.css';
+
+// import swiper
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { EffectCube, Autoplay } from 'swiper';
 
 // init swiper
 SwiperCore.use([EffectCube, Autoplay]);
@@ -36,13 +36,6 @@ export default function About() {
         console.log("About and images:", about, images);
     }, [about, images])
 
-    const cubeEffect = { shadow: false };
-    const autoplay = {
-        delay: 5000,
-        disableOnInteraction: false,
-    }
-
-
     return loading ? <Spin id="loading" /> : (
         <>
             <section id="aboutTop" className="blackBorder">
@@ -50,17 +43,20 @@ export default function About() {
             </section>
 
             <Swiper
-            style={{width: "100%"}}
+                style={{width: "100%"}}
                 id="aboutBottom"
                 className="blackBorder"
                 loop="true"
-                autoplay={autoplay}
+                autoplay={{
+                    delay: 5000,
+                    disableOnInteraction: false,
+                }}
                 effect="cube"
-                cubeEffect={cubeEffect}
+                cubeEffect={{ shadow: false }}
             >
-                {images.map(image => {
+                {images.map((image, index) => {
                     return (
-                        <SwiperSlide>
+                        <SwiperSlide key={`image${index}`}>
                             <img className="aboutImage" alt={image.alt} src={`/api/images/id/${image._id}`} />
                             <div className="aboutDescriptionBackground">
                                 <div className="aboutDescription">{about[0].description}</div>
