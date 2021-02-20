@@ -6,6 +6,10 @@
     position: relative;
 }
 
+#aboutTop {
+    background-color: #FAC901;
+}
+
 .aboutImage {
     height: 100%;
     width: 100%;
