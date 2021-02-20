@@ -1,40 +1,22 @@
-#projectsTop, #projectsBottom {
-    color: #ffffff;
+.projectsText {
+    color: #fff;
 }
 
-#projectsTop {
-    display: grid;
-    grid-template-columns: 2fr 1.3fr;
-    grid-template-rows: auto;
-}
-
-#projectsBottom {
-    padding: 0 1vw;
-}
-
-#projectImage, #projectImageCover {
-    grid-row: 1;
-    grid-column: 1;
-    height: 100%;
+.projectImage {
     width: 100%;
-}
-
-#projectImage {
+    height: 100%;
     object-fit: cover;
 }
 
-#projectImageCover {
-    z-index: 1;
-    background-color: rgba(221, 1, 0, 0.55);
+.projectsTop, .projectsBottom {
+    height: 50%;
+    background-color: #DD0100;
 }
 
-#projectCover {
-    padding: 1vh 0;
+.projectsTop {
     text-align: center;
-    grid: 2 / 2;
 }
 
-#projectCover > h2 {
-    /* Explicitely set color of title because otherwise it wont apply */
-    color: #ffffff;
+.projectsBottom {
+    padding: 0 0.5vw;
 }

@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { Card, Space, Image, Spin, Row, Col } from 'antd';
+import { Spin, Col, Row } from 'antd';
 
 import "./projects.css";
+
+// import swiper
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { EffectCube, Autoplay } from 'swiper';
+
+// init swiper
+SwiperCore.use([EffectCube, Autoplay]);
 
 export default function Projects() {
     const [projects, setProjects] = useState([]);
     const [loading, setLoading] = useState(true)
-
-
 
     useEffect(() => {
         const getProjects = async () => {
@@ -25,18 +30,42 @@ export default function Projects() {
     // TODO update Spin loading to better fit inside the painting
     return loading ? <Spin id="loading" /> : (
         <>
-            <div id="projectsTop" className="blackBorder">
-                <img id="projectImage" src={`/api/projects/id/${projects[0]._id}/image`} />
-                <div id="projectImageCover" />
-                <div id="projectCover">
-                    <h2>{projects[0].title}</h2>
-                    <br />
-                    <p>{new Date(projects[0].startDate).toDateString()}</p>
-                    <p>{projects[0].endDate ? new Date(projects[0].endDate).toLocaleString() : "Ongoing"}</p>
-                    <p>{projects[0].company}</p>
-                </div>
-            </div>
-            <div id="projectsBottom" className="blackBorder">{projects[0].description}</div>
+            <Swiper
+                style={{ width: "100%", height: "100%" }}
+                id="projects"
+                className="blackBorder"
+                loop="true"
+                autoplay={{  
+                    delay: 10000,
+                    disableOnInteraction: true,
+                }}
+                effect="cube"
+                cubeEffect={{ shadow: false }}
+            >
+                {projects.map((project, index) => {
+                    return (
+                        <SwiperSlide key={`project${index}`}>
+                            <Row className="projectsTop">
+                                <Col span={14}>
+                                    <img className="projectImage" src={`/api/projects/id/${project._id}/image`} alt="project" />
+                                </Col>
+                                <Col className="projectsText" span={10}>
+                                    <br />
+                                    <h2 className="projectsText">{project.title}</h2>
+                                    <p>{(new Date(project.startDate)).toLocaleDateString()}</p>
+                                    <p>{project.endDate ? new Date(project.startDate).toLocaleDateString() : "ongoing"}</p>
+                                    <p>{project.company}</p>
+                                </Col>
+                            </Row>
+                            <Row className="projectsBottom">
+                                <Col span={24} className="projectsText">
+                                    <p>{project.description}</p>
+                                </Col>
+                            </Row>
+                        </SwiperSlide>
+                    )
+                })}
+            </Swiper>
         </>
         // <section id="projectPage">
         //     <section id="projectContainer">

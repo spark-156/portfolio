@@ -38,7 +38,6 @@ body {
         grid-template-rows: 0.8fr 1fr 1.5fr 1fr 1fr 0.8fr 1.2fr 0.8fr 0.6fr 0.3fr;
     }
     #aboutTop, #aboutBottom {
-        background-color: #FAC901;
         grid-column: 7 / 9;
         border: 4px solid black;
     }
@@ -49,17 +48,10 @@ body {
     #aboutBottom {
         grid-row: 2 / 4;
     }
-    #projectsTop, #projectsBottom {
+    #projects {
         grid-column: 3 / 7;
-        background-color: #DD0100;
-    }
-    #projectsTop {
-        border-bottom: 0;
-        grid-row: 2 / 4;
-    }
-    #projectsBottom {
-        border-top: 0;
-        grid-row: 4 / 6;
+        grid-row: 2 / 6;
+        
     }
     #contact {
         background-color: #225095;
