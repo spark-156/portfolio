@@ -65,9 +65,9 @@ body {
 @media screen and (min-width: 481px) and (max-width: 1000px) {
     #gridContainer {
         width: 100vw;
-        height: 1300px;
+        height: 200vw;
         /* 2 side columns are not used for content */
-        /* 6 columns and * rows for a half size painting */
+        /* 6 columns and 13 rows for a half size painting */
         grid-template-columns: 0.3fr 1fr 1fr 1fr 1fr 0.3fr;
         grid-template-rows: 0.7fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 0.5fr;
     }
