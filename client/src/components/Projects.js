@@ -43,7 +43,7 @@ export default function Projects() {
                                     key={`project${index}`}
                                     onClick={() => swiper.slideTo(index + 1, 1000, true)}
                                     id={index === activeProjectIndex ? "activeProject" : ""}
-                                    style={{borderColor: borderColors[index % borderColors.length]}}
+                                    style={{ borderColor: borderColors[index % borderColors.length] }}
                                 >
                                     {project.title}
                                 </li>
@@ -91,22 +91,5 @@ export default function Projects() {
                 })}
             </Swiper>
         </>
-        // <section id="projectPage">
-        //     <section id="projectContainer">
-        //         {projects.map(project => {
-        //             return (
-        //                 <Card className="projectCard"
-        //                 key={project._id}
-        //             onClick={handleOpenCard}
-        //             cover={<img alt="project" src={`/api/projects/id/${project._id}/image`} />}
-        //         >
-        //             {/* <h2 className="projectCardTitle">{project.title}</h2>
-        //             <p className="projectCardDescription">{project.description}</p> */}
-        //             <Meta title={project.title} description={project.description} />
-        //             <p className="projectCardStatus">Status: {project.endDate ? "Finished" : "In progress"}</p>
-        //         </Card>)
-        //         })}
-        //     </section>
-        // </section>
     )
 }
