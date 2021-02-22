@@ -3,8 +3,8 @@ module.exports = mongoose => {
         "Admin",
         mongoose.Schema(
             {
-                username: String,
-                password: String
+                email: { type: String, required: true, unique: true },
+                password: { type: String, required: true}
             },
             { timestamps: true }
         )
