@@ -11,6 +11,7 @@ body {
     /* background-size: cover;
     background-image: url("../images/white-canvas.jpg");
     background-repeat: no-repeat; */
+    font-size: 1em;
 }
 
 #gridContainer {
@@ -24,6 +25,9 @@ body {
 
 /* Full size painting aka desktop */
 @media screen and (min-width: 1000px) {
+    body {
+        font-size: 1em;
+    }
     #gridContainer {
         padding: 0;
         margin: 0 auto;
@@ -63,6 +67,9 @@ body {
 /* Half size painting aka tablet */
 
 @media screen and (min-width: 481px) and (max-width: 1000px) {
+    body {
+        font-size: 1.2em;
+    }
     #gridContainer {
         width: 100vw;
         height: 200vw;
@@ -97,6 +104,9 @@ body {
 
 /* Quarter size painting aka phone  */
 @media screen and (max-width: 480px) {
+    body {
+        font-size: 0.9em;
+    }
     #gridContainer {
         width: 100vw;
         height: 300vw;
