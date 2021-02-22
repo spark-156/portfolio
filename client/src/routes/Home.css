@@ -96,12 +96,37 @@ body {
 }
 
 /* Quarter size painting aka phone  */
-
 @media screen and (max-width: 480px) {
     #gridContainer {
         width: 100vw;
-        /* 1 column and 12 rows for a quarter size painting */
-        grid-template-columns: auto;
-        grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto auto;
+        height: 300vw;
+        /* 5 columns and 13 rows for a quarter size painting */
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+    #aboutTop, #aboutBottom {
+        grid-column: 3 / 6;
+        border-right: 0;
+    }
+    #aboutTop {
+        border-top: 0;
+        grid-row: 1;
+    }
+    #aboutBottom {
+        grid-row: 2 / 4;
+    }
+    #projects {
+        grid-area: 4 / 1 / 10 / 6;
+        border-right: 0;
+        border-left: 0;
+    }
+    #skills {
+        grid-area: 10 / 1 / 13 / 4;
+        border-left: 0;
+    }
+    #contact {
+        grid-area: 12 / 4 / 15 / 6;
+        border-right: 0;
+        border-bottom: none;
     }
 }
