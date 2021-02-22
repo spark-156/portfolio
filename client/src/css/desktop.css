@@ -33,8 +33,7 @@
         grid-row: 4 / 7;
     }
     #d6 {
-        grid-column: 7;
-        grid-row: 4 / 6;
+        display: none;
     }
     #d7 {
         grid-column: 8;

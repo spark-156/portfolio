@@ -58,7 +58,7 @@
         grid-area: 9 / 4 / 11 / 4;
     }
     #d13 {
-        grid-area: 9 / 5 / 11 / 5;
+        display: none;
     }
     #d14 {
         grid-area: 11 / 1 / 14 / 1;

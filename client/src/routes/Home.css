@@ -54,6 +54,9 @@ body {
         grid-column: 3 / 7;
         grid-row: 2 / 6;
     }
+    #projectsList {
+        grid-area: 4 / 7 / 6 / 7;
+    }
     #skills {
         grid-column: 3 / 5;
         grid-row: 6 / 9;
@@ -91,6 +94,9 @@ body {
     #projects {
         grid-column: 2 / 6;
         grid-row: 4 / 9;
+    }
+    #projectsList {
+        grid-area: 9 / 5 / 11 / 5;
     }
     #skills {
         grid-column: 2 / 4;
@@ -131,13 +137,17 @@ body {
         border-left: 0;
         font-size: 1.2em;
     }
+    #projectsList {
+        grid-area: 10 / 4 / 13 / 6;
+        border-right: 0;
+    }
     #skills {
         grid-area: 10 / 1 / 13 / 4;
         border-left: 0;
         font-size: 1.2em
     }
     #contact {
-        grid-area: 12 / 4 / 15 / 6;
+        grid-area: 13 / 3 / 15 / 6;
         border-right: 0;
         border-bottom: none;
         font-size: 1.5em;

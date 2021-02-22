@@ -29,23 +29,25 @@ export default function Projects() {
         console.log("Projects:", projects)
     }, [projects])
 
-    function goToSlide(index) {
-        swiper.slideTo(index + 1, 1000, true);
-    }
 
     // TODO update Spin loading to better fit inside the painting
     return loading ? <Spin id="loading" /> : (
         <>
-            <section id="projectsList">
+            <section id="projectsList" className="blackBorder">
                 {swiper ? (
                     <ul>
                         {projects.map((project, index) => {
                             return (
-                                <li key={`project${index}`} onClick={() => goToSlide(index)} >{project.title}</li>
+                                <li
+                                    key={`project${index}`}
+                                    onClick={() => swiper.slideTo(index + 1, 1000, true)}
+                                    id={index === activeProjectIndex ? "activeProject" : ""}>
+                                    {project.title}
+                                    </li>
                             )
                         })}
                     </ul>
-                ) : <div>Loading...</div>}
+                ) : <div>Loading projects</div>}
             </section>
             <Swiper
                 style={{ width: "100%", height: "100%" }}
@@ -59,6 +61,7 @@ export default function Projects() {
                 effect="cube"
                 cubeEffect={{ shadow: false }}
                 onInit={swiperInstance => { setSwiper(swiperInstance) }}
+                onSlideChange={(swiper) => {setActiveProjectIndex(swiper.realIndex);}}
             >
                 {projects.map((project, index) => {
                     return (
@@ -71,7 +74,7 @@ export default function Projects() {
                                     <br />
                                     <h2 className="projectsText">{project.title}</h2>
                                     <p>{(new Date(project.startDate)).toLocaleDateString()}</p>
-                                    <p>{project.endDate ? new Date(project.startDate).toLocaleDateString() : "ongoing"}</p>
+                                    <p>{project.endDate ? new Date(project.startDate).toLocaleDateString() : "Still ongoing"}</p>
                                     <p>{project.company}</p>
                                 </Col>
                             </Row>

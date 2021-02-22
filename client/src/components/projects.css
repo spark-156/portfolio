@@ -24,3 +24,24 @@
 .projectsTopCol {
     height: 100%;
 }
+
+#projectsList {
+    padding: 5px;
+}
+
+#projectsList > ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+}
+
+#projectsList > ul:hover {
+    cursor: pointer;
+}
+
+#activeProject {
+    font-weight: bold;
+    padding-left: 3px;
+    border-left: 6px solid lightblue;
+}
