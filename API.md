@@ -144,7 +144,7 @@ Update a specific about
 ### DELETE /api/about/id/:id
 Delete a specific about
 
-## /api/images/
+# /api/images/
 All image api calls
 
 ### GET /api/images/all
@@ -162,3 +162,16 @@ Update specific image
 
 ### DELETE /api/image/id/:id
 Delete specific image
+
+# /api/admin/
+All api calls surrounding admin
+
+### POST /api/admin/register
+Registers a new admin, must have the following in the body: 
+```
+{
+  email: String,
+  password: String
+}
+```
+
