@@ -29,6 +29,7 @@ export default function Projects() {
         console.log("Projects:", projects)
     }, [projects])
 
+    const borderColors = ["#DD0100", "#225095", "#FAC901"];
 
     // TODO update Spin loading to better fit inside the painting
     return loading ? <Spin id="loading" /> : (
@@ -41,9 +42,11 @@ export default function Projects() {
                                 <li
                                     key={`project${index}`}
                                     onClick={() => swiper.slideTo(index + 1, 1000, true)}
-                                    id={index === activeProjectIndex ? "activeProject" : ""}>
+                                    id={index === activeProjectIndex ? "activeProject" : ""}
+                                    style={{borderColor: borderColors[index % borderColors.length]}}
+                                >
                                     {project.title}
-                                    </li>
+                                </li>
                             )
                         })}
                     </ul>
@@ -61,7 +64,7 @@ export default function Projects() {
                 effect="cube"
                 cubeEffect={{ shadow: false }}
                 onInit={swiperInstance => { setSwiper(swiperInstance) }}
-                onSlideChange={(swiper) => {setActiveProjectIndex(swiper.realIndex);}}
+                onSlideChange={(swiper) => { setActiveProjectIndex(swiper.realIndex); }}
             >
                 {projects.map((project, index) => {
                     return (
