@@ -36,12 +36,17 @@ app.use("/api/about", aboutRouter);
 const imagesRouter = require('./routes/images');
 app.use("/api/images", imagesRouter);
 
+// Import and init admin route
+const adminRouter = require('./routes/admin');
+app.use("/api/admin", adminRouter);
+
 // Error handling middleware
 app.use((err, req, res, next) => {
   status = err.status || 500;
   res.status(status).send(err.message);
 });
 
+// Start database connection
 db.mongoose
   .connect(db.url, {
     useNewUrlParser: true,
@@ -55,6 +60,7 @@ db.mongoose
     process.exit();
   });
 
+// Log start of server
 app.listen(PORT, () => {
     console.log(`Server is listening on port ${PORT}`);
 });

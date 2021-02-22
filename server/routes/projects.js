@@ -50,7 +50,6 @@ const requiredProjectParams = (req, res, next) => {
     }
 };
 
-// Hello World route
 projectsRouter.get('/all', async (req, res, next) => {
     try {
         const projects = await ProjectsModel.find().select('-image');
