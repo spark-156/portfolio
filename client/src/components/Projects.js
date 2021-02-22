@@ -13,6 +13,8 @@ SwiperCore.use([EffectCube, Autoplay]);
 export default function Projects() {
     const [projects, setProjects] = useState([]);
     const [loading, setLoading] = useState(true)
+    const [swiper, setSwiper] = useState(null);
+    const [activeProjectIndex, setActiveProjectIndex] = useState(0);
 
     useEffect(() => {
         const getProjects = async () => {
@@ -24,23 +26,39 @@ export default function Projects() {
     }, []);
 
     useEffect(() => {
-        console.log("projects", projects)
+        console.log("Projects:", projects)
     }, [projects])
+
+    function goToSlide(index) {
+        swiper.slideTo(index + 1, 1000, true);
+    }
 
     // TODO update Spin loading to better fit inside the painting
     return loading ? <Spin id="loading" /> : (
         <>
+            <section id="projectsList">
+                {swiper ? (
+                    <ul>
+                        {projects.map((project, index) => {
+                            return (
+                                <li key={`project${index}`} onClick={() => goToSlide(index)} >{project.title}</li>
+                            )
+                        })}
+                    </ul>
+                ) : <div>Loading...</div>}
+            </section>
             <Swiper
                 style={{ width: "100%", height: "100%" }}
                 id="projects"
                 className="blackBorder"
                 loop="true"
-                autoplay={{  
+                autoplay={{
                     delay: 10000,
                     disableOnInteraction: true,
                 }}
                 effect="cube"
                 cubeEffect={{ shadow: false }}
+                onInit={swiperInstance => { setSwiper(swiperInstance) }}
             >
                 {projects.map((project, index) => {
                     return (
