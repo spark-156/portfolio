@@ -119,14 +119,17 @@ body {
         grid-area: 4 / 1 / 10 / 6;
         border-right: 0;
         border-left: 0;
+        font-size: 1.2em;
     }
     #skills {
         grid-area: 10 / 1 / 13 / 4;
         border-left: 0;
+        font-size: 1.2em
     }
     #contact {
         grid-area: 12 / 4 / 15 / 6;
         border-right: 0;
         border-bottom: none;
+        font-size: 1.5em;
     }
 }
