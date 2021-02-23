@@ -62,7 +62,7 @@ aboutRouter.post('/new', basicAuth, async (req, res, next) => {
             description
         });
         await about.save();
-        res.status(201).json({ "id": about._id });
+        res.status(201).json({ id: about._id });
     } catch {
         next(new Error("Could not create new About document in database"));
     }
@@ -77,7 +77,7 @@ aboutRouter.put("/id/:id", basicAuth, findById, async (req, res, next) => {
             error.status = 404;
             return next(error) 
         }
-        res.status(200).send(req.params.id);
+        res.status(200).send({id: req.params.id});
     } catch {
         next(new Error("Could not update About object"));
     }
@@ -86,7 +86,7 @@ aboutRouter.put("/id/:id", basicAuth, findById, async (req, res, next) => {
 aboutRouter.delete("/id/:id", basicAuth, findById, async (req, res, next) => {
     try {
         await AboutModel.findByIdAndDelete(req.params.id);
-        res.status(200).send(req.params.id);
+        res.status(200).send({id: req.params.id});
     } catch {
         next(new Error("Could not delete Object"));
     }
