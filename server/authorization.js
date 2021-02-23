@@ -1,11 +1,8 @@
+const dotenv = require("dotenv")
 const basicAuth = require('express-basic-auth')
-const adminEnv = process.env;
 
-const {
-    ADMIN_EMAIL,
-    ADMIN_PASSWORD
-} = adminEnv;
+dotenv.config()
 
 module.exports = basicAuth({
-    users: { [ADMIN_EMAIL]: ADMIN_PASSWORD }
+    users: { [process.env.ADMIN_EMAIL]: process.env.ADMIN_PASSWORD }
 })
