@@ -38,7 +38,13 @@ skillsRouter.get('/latest', async (req, res, next) => {
 
 skillsRouter.post('/new', basicAuth, async (req, res, next) => {
     try {
-        // TODO make this
+        const { skills } = req.body.skills;
+        if (!skills.length > 0) {return res.status(400).send("No skills were sent in the request body")};
+        let skillsNew = new SkillsModel({
+            skills
+        });
+        await skillsNew.save()
+        res.status(201).json({ id: skillsNew._id })
     } catch {
         next(new Error("Could not create new skills object"));
     }
