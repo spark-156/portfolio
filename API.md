@@ -83,7 +83,7 @@ Returns the latest added project in the following format:
 
 ### POST /api/projects/new 
 
-Requires auth
+**Requires auth**
 
 Post a new project to backend
 
@@ -109,7 +109,7 @@ Retuns status code 201 with the "_id" included in the body upon succesfull creat
 
 ### PUT /api/projects/id/:id
 
-Requires auth
+**Requires auth**
 
 Update a project in the database
 
@@ -132,12 +132,18 @@ Include a json in the body with all the fields you want to update:
 
 ### DELETE /api/projects/id/:id
 
-Requires auth
+**Requires auth**
 
 Deletes a project from the database
 
 `Example: /api/projects/id/60188fee30adf5035df6b54b`
 
+Returns code 200 with the following body:
+```
+{
+  id: Integer
+}
+```
 # /api/about/
 All api calls surrounding about
 ### GET /api/about/all
@@ -257,3 +263,68 @@ Update specific image
 
 ### DELETE /api/image/id/:id
 Delete specific image
+
+# /api/skills
+All api calls surrounding skills
+
+### GET /api/skills/id/:id
+Get a specific skill by id
+Replace ":id" part of the string with the id of the skill you wish to retrieve.
+
+returns a json in the following format:
+```
+[
+  {
+    skills: [
+      {
+        skillName: String,
+        skillGrade: Integer
+      },
+      {...},
+      {...}
+    ]
+  }
+]
+```
+
+### GET /api/skills/latest
+Get the latest skill returns a json in the following format:
+```
+[
+  {
+    skills: [
+      {
+        skillName: String,
+        skillGrade: Integer
+      },
+      {...},
+      ...
+    ]
+  }
+]
+```
+
+### POST /api/skills/new
+**Requires auth**
+
+Add a new skills object.
+Must have the follwing json in the body:
+```
+{
+  skills: [
+    {
+      skillsName: String,
+      skillsGrade: Integer
+    },
+    {...},
+    ...
+  ]
+}
+```
+Returns 200 code with the following body upon succesful creation:
+```
+{
+  id: Integer
+}
+```
+
