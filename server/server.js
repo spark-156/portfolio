@@ -34,10 +34,6 @@ app.use("/api/about", aboutRouter);
 const imagesRouter = require('./routes/images');
 app.use("/api/images", imagesRouter);
 
-// Import and init admin route
-const adminRouter = require('./routes/admin');
-app.use("/api/admin", adminRouter);
-
 // Error handling middleware
 app.use((err, req, res, next) => {
   status = err.status || 500;
