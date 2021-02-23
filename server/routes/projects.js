@@ -7,6 +7,7 @@ const basicAuth = require('../authorization.js');
 const projectsRouter = express.Router();
 
 projectsRouter.use('/id/:id', async (req, res, next) => {
+    // get a specific project by id
     try {
         const project = await ProjectsModel.findById(req.params.id);
         if (!project > 0) return res.status(404).send("No project found");

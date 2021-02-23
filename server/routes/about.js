@@ -84,6 +84,7 @@ aboutRouter.put("/id/:id", basicAuth, findById, async (req, res, next) => {
 });
 
 aboutRouter.delete("/id/:id", basicAuth, findById, async (req, res, next) => {
+    // Delete a specific about
     try {
         await AboutModel.findByIdAndDelete(req.params.id);
         res.status(200).send({id: req.params.id});
