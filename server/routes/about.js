@@ -2,6 +2,8 @@ const express = require('express');
 const mongoose = require("mongoose");
 const AboutModel = mongoose.model("About");
 
+const basicAuth = require('../authorization.js');
+
 const aboutRouter = express.Router();
 
 // Middleware for finding about with certain id
@@ -50,7 +52,7 @@ aboutRouter.get('/latest', async (req, res, next) => {
     }
 });
 
-aboutRouter.post('/new', async (req, res, next) => {
+aboutRouter.post('/new', basicAuth, async (req, res, next) => {
     // Add a new about description 
     try {
         const { name, description } = req.body;
@@ -66,7 +68,7 @@ aboutRouter.post('/new', async (req, res, next) => {
     }
 });
 
-aboutRouter.put("/id/:id", findById, async (req, res, next) => {
+aboutRouter.put("/id/:id", basicAuth, findById, async (req, res, next) => {
     // Update a specific about description 
     try {
         const about = await AboutModel.findByIdAndUpdate(req.params.id, req.body, { useFindAndModify: false })
@@ -81,7 +83,7 @@ aboutRouter.put("/id/:id", findById, async (req, res, next) => {
     }
 });
 
-aboutRouter.delete("/id/:id", findById, async (req, res, next) => {
+aboutRouter.delete("/id/:id", basicAuth, findById, async (req, res, next) => {
     try {
         await AboutModel.findByIdAndDelete(req.params.id);
         res.status(200).send(req.params.id);

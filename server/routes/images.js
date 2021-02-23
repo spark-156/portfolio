@@ -2,6 +2,8 @@ const express = require('express');
 const mongoose = require("mongoose");
 const ImagesModel = mongoose.model("Images");
 
+const basicAuth = require('../authorization.js');
+
 const imageRouter = express.Router();
 
 const validateImage = (req, res, next) => {
@@ -48,7 +50,7 @@ imageRouter.get('/id/:id', async (req, res, next) => {
     }
 });
 
-imageRouter.post('/new', validateImage, async (req, res, next) => {
+imageRouter.post('/new', basicAuth, validateImage, async (req, res, next) => {
     try {
         let image = new ImagesModel({
             image: {
@@ -64,7 +66,7 @@ imageRouter.post('/new', validateImage, async (req, res, next) => {
     }
 });
 
-imageRouter.delete('/id/:id', async (req, res, next) => {
+imageRouter.delete('/id/:id', basicAuth, async (req, res, next) => {
     // TODO make it so you can update the alt only too
     try {
         await ImagesModel.findByIdAndDelete(req.params.id);
@@ -74,7 +76,7 @@ imageRouter.delete('/id/:id', async (req, res, next) => {
     }
 });
 
-imageRouter.put('/id/:id', validateImage, async (req, res, next) => {
+imageRouter.put('/id/:id', basicAuth, validateImage, async (req, res, next) => {
     try {
         const image = {
             image: {

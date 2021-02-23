@@ -2,6 +2,8 @@ const express = require('express');
 const mongoose = require("mongoose");
 const ProjectsModel = mongoose.model("Projects");
 
+const basicAuth = require('../authorization.js');
+
 const projectsRouter = express.Router();
 
 projectsRouter.use('/id/:id', async (req, res, next) => {
@@ -88,7 +90,7 @@ projectsRouter.get('/latest', async (req, res, next) => {
     }
 });
 
-projectsRouter.post('/new', requiredProjectParams, async (req, res, next) => {
+projectsRouter.post('/new', basicAuth, requiredProjectParams, async (req, res, next) => {
     try {
         const project = new ProjectsModel(req.newProject);
         await project.save();
@@ -98,7 +100,7 @@ projectsRouter.post('/new', requiredProjectParams, async (req, res, next) => {
     }
 });
 
-projectsRouter.put('/id/:id', async (req, res, next) => {
+projectsRouter.put('/id/:id', basicAuth, async (req, res, next) => {
     // TODO Fix this api call!
     try {
         const project = req.body;
@@ -119,7 +121,7 @@ projectsRouter.put('/id/:id', async (req, res, next) => {
     }
 });
 
-projectsRouter.delete('/id/:id', async (req, res, next) => {
+projectsRouter.delete('/id/:id', basicAuth, async (req, res, next) => {
     try {
         await ProjectsModel.findByIdAndDelete(req.params.id);
         res.status(200).send()
