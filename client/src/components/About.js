@@ -12,7 +12,7 @@ import SwiperCore, { EffectCube, Autoplay } from 'swiper';
 // init swiper
 SwiperCore.use([EffectCube, Autoplay]);
 
-export default function About() {
+export default function About({ isAdmin }) {
     const [loading, setLoading] = useState(true);
     const [images, setImages] = useState([{}]);
     const [about, setAbout] = useState([{ name: "", description: "" }]);

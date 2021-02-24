@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Spin, Row, Col } from 'antd';
 
-export default function skills() {
+export default function skills({ isAdmin }) {
     const [skills, setSkills] = useState([]);
     const [loading, setLoading] = useState(true)
     const backgroundColors = ["#DD0100", "#225095", "#FAC901"];

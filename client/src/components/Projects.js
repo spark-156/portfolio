@@ -10,7 +10,7 @@ import SwiperCore, { EffectCube, Autoplay } from 'swiper';
 // init swiper
 SwiperCore.use([EffectCube, Autoplay]);
 
-export default function Projects() {
+export default function Projects({ isAdmin }) {
     const [projects, setProjects] = useState([]);
     const [loading, setLoading] = useState(true)
     const [swiper, setSwiper] = useState(null);
