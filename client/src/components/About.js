@@ -32,10 +32,6 @@ export default function About({ isAdmin }) {
         getImages();
     }, []);
 
-    useEffect(() => {
-        console.log("About and images:", about, images);
-    }, [about, images])
-
     return loading ? <Spin id="loading" /> : (
         <>
             <section id="aboutTop" className="blackBorder">

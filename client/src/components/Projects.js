@@ -25,10 +25,6 @@ export default function Projects({ isAdmin }) {
         getProjects();
     }, []);
 
-    useEffect(() => {
-        console.log("Projects:", projects)
-    }, [projects])
-
     const borderColors = ["#DD0100", "#225095", "#FAC901"];
 
     // TODO update Spin loading to better fit inside the painting
