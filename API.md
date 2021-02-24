@@ -269,12 +269,16 @@ All api calls surrounding skills
 
 ### GET /api/skills/id/:id
 Get a specific skill by id
-Replace ":id" part of the string with the id of the skill you wish to retrieve.
+
+Replace the ":id" part of the string with the id of the skills object you wish to delete
+
+`Example: /api/skills/id/1897264681`
 
 returns a json in the following format:
 ```
 [
   {
+    _id: String,
     skills: [
       {
         skillName: String,
@@ -282,7 +286,9 @@ returns a json in the following format:
       },
       {...},
       {...}
-    ]
+    ],
+    createdAt: String,
+    updatedAt: String
   }
 ]
 ```
@@ -292,6 +298,7 @@ Get the latest skill returns a json in the following format:
 ```
 [
   {
+    _id: String,
     skills: [
       {
         skillName: String,
@@ -299,11 +306,33 @@ Get the latest skill returns a json in the following format:
       },
       {...},
       ...
-    ]
+    ],
+    createdAt: String,
+    updatedAt: String
   }
 ]
 ```
-
+### GET /api/skills/all
+Get all skills sorted by latest first. Returns a json in the following format with status code 200:
+```
+[
+  {
+    _id: String,
+    skills: [
+      {
+        skillName: String,
+        skillGrade: Integer
+      },
+      {...},
+      ...
+    ],
+    createdAt: String,
+    updatedAt: String
+  },
+  {...},
+  ...
+]
+```
 ### POST /api/skills/new
 **Requires auth**
 
@@ -313,8 +342,8 @@ Must have the follwing json in the body:
 {
   skills: [
     {
-      skillsName: String,
-      skillsGrade: Integer
+      skillName: String,
+      skillGrade: Integer
     },
     {...},
     ...
@@ -328,3 +357,44 @@ Returns 200 code with the following body upon succesful creation:
 }
 ```
 
+### DELETE /api/skills/id/:id
+Requires auth
+
+Replace the ":id" part of the string with the id of the skills object you wish to delete
+
+`Example: /api/skills/id/1897264681`
+
+Returns code 200 with the following body upon succesful deletion:
+```
+{
+  _id: Integer
+}
+```
+### PUT /api/skills/id/:id
+Update a specific skills object by id.
+Watch out the entire skills object will be updated at once, if you wish to update just one of the skillName, skillGrade, then you must still include all the other ones. Otherwise they will be lost.
+Must include the following body:
+
+Replace the ":id" part of the string with the id of the skills object you wish to delete
+
+`Example: /api/skills/id/1897264681`
+```
+{
+  skills: [
+    {
+      {
+        skillName: String,
+        skillGrade: Integer
+      },
+      {...},
+      ...
+    }
+  ]
+}
+```
+Returns status 200 with the following body where id is the updated skill:
+```
+{
+  id: Integer
+}
+```
