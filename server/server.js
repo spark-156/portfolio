@@ -34,6 +34,10 @@ app.use("/api/about", aboutRouter);
 const imagesRouter = require('./routes/images');
 app.use("/api/images", imagesRouter);
 
+// Import and init skills route
+const skillsRouter = require("./routes/skills");
+app.use("/api/skills", skillsRouter);
+
 // Error handling middleware
 app.use((err, req, res, next) => {
   status = err.status || 500;
