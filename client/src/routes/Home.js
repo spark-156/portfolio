@@ -18,7 +18,7 @@ export default function Home({ isAdmin }) {
             <Projects isAdmin={isAdmin} />
             <Contact isAdmin={isAdmin} />
             <Skills isAdmin={isAdmin} />
-            {isAdmin ?? <Admin />}
+            {isAdmin ? <Admin /> : null}
         </section>
     )
 }
