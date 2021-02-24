@@ -10,7 +10,6 @@ import './App.css';
 
 // pages
 const Home = lazy(() => import("./routes/Home"));
-const Admin = lazy(() => import("./routes/Admin"));
 const NotFoundPage = lazy(() => import("./routes/NotFoundPage"));
 
 const App = () => {
@@ -20,9 +19,11 @@ const App = () => {
       <Suspense fallback={<div>Loading...</div>}>
         <Switch>
           <Route exact path="/" >
-            <Home />
+            <Home isAdmin={false} />
           </Route>
-          <Route path="/admin" component={Admin} />
+          <Route path="/admin" >
+            <Home isAdmin={true} />
+          </Route>
           <Route path="*" component={NotFoundPage} />
         </Switch>
       </Suspense>
