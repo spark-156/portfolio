@@ -36,9 +36,21 @@ skillsRouter.get('/latest', async (req, res, next) => {
     }
 });
 
+skillsRouter.get('/all', async (req, res, next) => {
+    try {
+        const skills = await SkillsModel.find().sort({$natural:-1});
+        if (!skills > 0) return res.status(404).send("No skills found");
+        res.send(skills);
+    } catch {
+        next(new Error("Could not get all skills"));
+    }
+});
+
 skillsRouter.post('/new', basicAuth, async (req, res, next) => {
     try {
-        const { skills } = req.body.skills;
+
+        const { skills } = req.body;
+        console.log(skills);
         if (!skills.length > 0) {return res.status(400).send("No skills were sent in the request body")};
         let skillsNew = new SkillsModel({
             skills
@@ -49,3 +61,26 @@ skillsRouter.post('/new', basicAuth, async (req, res, next) => {
         next(new Error("Could not create new skills object"));
     }
 });
+
+skillsRouter.put('/id/:id', basicAuth, async (req, res, next) => {
+    try {
+        const skills = {
+            skills: req.body.skills
+        };
+        await SkillsModel.findByIdAndUpdate(req.params.id, skills, { useFindAndModify: false });
+        res.status(200).send({ id: req.params.id });
+    } catch {
+        next(new Error("Could not update specific skills object"))
+    }
+});
+
+skillsRouter.delete('/id/:id', basicAuth, async (req, res, next) => {
+    try {
+        await SkillsModel.findByIdAndDelete(req.params.id);
+        res.send({ id: req.params.id });
+    } catch {
+        next(new Error("Could not delete skills object"));
+    }
+});
+
+module.exports = skillsRouter;
