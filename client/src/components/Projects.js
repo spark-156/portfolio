@@ -68,6 +68,7 @@ export default function Projects({ isAdmin }) {
                             <Row className="projectsTop">
                                 <Col className="projectsTopCol" span={14}>
                                     <img className="projectImage" src={`/api/projects/id/${project._id}/image`} alt="project" />
+                                    <div className="projectImageOverlay"></div>
                                 </Col>
                                 <Col className="projectsText projectsTopCol" span={10}>
                                     <br />
