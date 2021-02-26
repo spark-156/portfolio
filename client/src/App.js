@@ -1,34 +1,34 @@
-import React, { useState, useEffect } from 'react';
+import React, { lazy, Suspense } from "react";
+import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
 
-function App() {
-  const [apiCallResponse, setApiCallResponse] = useState(null);
-  const [selectedApi, setSelectedApi] = useState('/api/helloworld');
+import 'antd/dist/antd.css';
+import 'swiper/swiper.scss';
+import 'swiper/components/autoplay';
+import 'swiper/components/effect-cube/effect-cube.scss';
 
-  useEffect(() => {
-    async function fetchApi() {
-      const res = await fetch(selectedApi);
-      const body = await res.json();
-      if (res.status !== 200) {throw Error(body.message)}
-      setApiCallResponse(body.string);
-    }
-    fetchApi();
-  }, [selectedApi]);
+import './App.css';
 
-  function handleApiSelectorChange({ target }) {
-    setSelectedApi(target.value);
-    console.log(selectedApi);
-  }
+// pages
+const Home = lazy(() => import("./routes/Home"));
+const NotFoundPage = lazy(() => import("./routes/NotFoundPage"));
+
+const App = () => {
 
   return (
-    <div>
-      <h1>Welcome to React!</h1>
-      <div>{apiCallResponse}</div>
-      <select onChange={handleApiSelectorChange}>
-        <option value="/api/helloworld">helloworld</option>
-        <option value="/api/express_backend">express</option>
-      </select>
-    </div>
+    <Router>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Switch>
+          <Route exact path="/" >
+            <Home isAdmin={false} />
+          </Route>
+          {/* <Route path="/admin" >
+            <Home isAdmin={true} />
+          </Route> */}
+          <Route path="*" component={NotFoundPage} />
+        </Switch>
+      </Suspense>
+    </Router>
   );
-}
+};
 
 export default App;

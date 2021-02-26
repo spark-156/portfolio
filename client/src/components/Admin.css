@@ -1,0 +1,19 @@
+/* Hide unless its desktop version  */
+.adminClass {
+    display: none;
+}
+
+@media screen and (min-width: 1000px) {
+    #d11, #d17 {
+        display: none;
+    }
+    .adminClass {
+        display: block;
+    }
+    
+    #admin {
+        padding: 5px;
+        grid-area: 6 / 5 / 9 / 7;
+    }
+}
+
