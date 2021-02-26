@@ -1,4 +1,5 @@
-/* Hide unless its desktop version  */
+/* 
+Hide unless its desktop version 
 .adminClass {
     display: none;
 }
@@ -16,4 +17,4 @@
         grid-area: 6 / 5 / 9 / 7;
     }
 }
-
+ */
