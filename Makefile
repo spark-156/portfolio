@@ -13,3 +13,11 @@ stop:
 build: 
 	docker-compose -f docker-compose.dev.yml build
 	
+buildProd:
+	docker-compose -f docker-compose.dev.yml build
+
+startProd:
+	docker-compose -f docker-compose.dev.yml up
+
+logsProd:
+	docker-compose -f docker-compose.dev.yml logs -f
