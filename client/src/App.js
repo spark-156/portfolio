@@ -21,9 +21,9 @@ const App = () => {
           <Route exact path="/" >
             <Home isAdmin={false} />
           </Route>
-          <Route path="/admin" >
+          {/* <Route path="/admin" >
             <Home isAdmin={true} />
-          </Route>
+          </Route> */}
           <Route path="*" component={NotFoundPage} />
         </Switch>
       </Suspense>
