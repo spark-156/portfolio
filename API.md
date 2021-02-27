@@ -246,23 +246,84 @@ Returns 200 upon succesful deletion with the following body:
 }
 ```
 # /api/images/
-All image api calls
+All api calls surrounding images
 
 ### GET /api/images/all
 Get all images excluding image data
+Returns the following body:
+```
+[
+  {
+    "_id": String,
+    "alt": String,
+    "createdAt": String,
+    "updatedAt": String 
+  },
+  {...},
+  ...
+]
+```
 
 ### GET /api/images/id/:id
 Get a specific image
+
+Replace the ":id" part of the string with the id of the skills object you wish to delete
+
+`Example: /api/images/id/1897264681`
+
+Returns a picture that you can use in the src="ApiCallHere" of an "<img src=`ApiCallHere`> " tag in HTML or JSX.
+
 ### GET /api/images/latest
-Get latest added image
+Returns the same as GET /api/images/id/:id but instead always returns the latest added image.
 ### POST /api/images/new
-Upload new image
+Requires Auth
 
+Upload a new image. Must have the following body:
+```
+{
+  "alt": String, // short text describing the image 
+  "image": imagefile 
+}
+```
+Returns the following body:
+```
+{
+  id: String
+}
+```
 ### PUT /api/images/id/:id
-Update specific image
+Requires auth
 
+Update a specific image. 
+
+__Warning you can not update the alt of an image!__
+
+You can however update the imagefile by including the following body
+
+{
+  "image": imagefile
+}
+Returns the following body:
+```
+{
+  id: String
+}
+```
 ### DELETE /api/image/id/:id
-Delete specific image
+Requires auth
+
+Delete a specific image by id.
+
+Replace the ":id" part of the string with the id of the skills object you wish to delete
+
+`Example: /api/skills/id/1897264681`
+
+Returns the following body:
+```
+{
+  id: String
+}
+```
 
 # /api/skills
 All api calls surrounding skills
