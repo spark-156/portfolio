@@ -10,6 +10,7 @@ import './Home.css';
 import '../css/Loading.css';
 
 export default function Home({ isAdmin }) {
+    // TODO update Spin loading to better fit inside the painting
 
     return (
         <section id="gridContainer" style={{aspectRatio: 1 / 1}}>
