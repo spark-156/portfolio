@@ -21,3 +21,6 @@ startProd:
 
 logsProd:
 	docker-compose -f docker-compose.prod.yml logs -f
+
+stopProd:
+	docker-compose -f docker-compose.prod.yml stop
