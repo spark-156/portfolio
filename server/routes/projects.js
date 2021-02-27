@@ -56,7 +56,7 @@ const requiredProjectParams = (req, res, next) => {
 projectsRouter.get('/all', async (req, res, next) => {
     try {
         const projects = await ProjectsModel.find().select('-image');
-        if (!projects.length > 0) return res.status(404).send("No projects found");
+        if (!projects.length > 0) return res.status(404).send(projects);
         res.status(200).send(projects);
     } catch {
         const error = new Error("Could not get all projects");
@@ -124,7 +124,7 @@ projectsRouter.put('/id/:id', basicAuth, async (req, res, next) => {
 projectsRouter.delete('/id/:id', basicAuth, async (req, res, next) => {
     try {
         await ProjectsModel.findByIdAndDelete(req.params.id);
-        res.status(200).send()
+        res.status(200).send({ id: req.params.id })
     } catch {
         next(new Error("Could not delete project"));
     }
