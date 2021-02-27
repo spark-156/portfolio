@@ -35,7 +35,8 @@ export default function About({ isAdmin }) {
     return loading ? <Spin id="loading" /> : (
         <>
             <section id="aboutTop" className="blackBorder">
-                <div id="aboutTopName">{about[0].name}</div>
+                <div id="aboutTopName">{about.length > 0 ? about[0].name : "Luca Bergman"}</div>
+                
             </section>
 
             <Swiper
@@ -50,7 +51,7 @@ export default function About({ isAdmin }) {
                 effect="cube"
                 cubeEffect={{ shadow: false }}
             >
-                {images.map((image, index) => {
+                {images.length > 0 ? (images.map((image, index) => {
                     return (
                         <SwiperSlide key={`image${index}`}>
                             <img className="aboutImage" alt={image.alt} src={`/api/images/id/${image._id}`} />
@@ -59,7 +60,12 @@ export default function About({ isAdmin }) {
                             </div>
                         </SwiperSlide>
                     )
-                })}
+                })) : (<SwiperSlide>
+                    <img className="aboutImage" alt="404 not found" src="../images/404.png" />
+                    <div className="aboutDescriptionBackground">
+                        <div className="aboutDescription">No about found, please try again later!</div>
+                    </div>
+                </SwiperSlide>)}
             </Swiper>
         </>
     )
