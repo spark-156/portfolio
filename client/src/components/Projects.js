@@ -47,7 +47,11 @@ export default function Projects({ isAdmin }) {
                         })}
                     </ul>
                 ) : <div>Loading projects</div>}
-            </section>) : <section id="projectsList" className="blackBorder" >No projects fpimd</section>}
+            </section>) : <section id="projectsList" className="blackBorder" >
+                        <ul>
+                            <li key="noprojectfound" id="activeProject" style={{ borderColor: borderColors[0 % borderColors.length] }}>No projects found!</li>
+                        </ul>
+            </section>}
             <Swiper
                 style={{ width: "100%", height: "100%" }}
                 id="projects"
@@ -91,11 +95,7 @@ export default function Projects({ isAdmin }) {
                             <div>No projects found, please check again later!</div>
                         </Col>
                     </Row>
-                    <Row>
-                        <Col className="projectsBottom">
-
-                        </Col>
-                    </Row>
+                    <Row className="projectsBottom" />
                 </SwiperSlide>)
                 }
             </Swiper>
