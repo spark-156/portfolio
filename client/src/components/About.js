@@ -56,7 +56,7 @@ export default function About({ isAdmin }) {
                         <SwiperSlide key={`image${index}`}>
                             <img className="aboutImage" alt={image.alt} src={`/api/images/id/${image._id}`} />
                             <div className="aboutDescriptionBackground">
-                                <div className="aboutDescription">{about[0].description}</div>
+                                <div className="aboutDescription">{about.length > 0 ? about[0].description : "No About found!"}</div>
                             </div>
                         </SwiperSlide>
                     )
