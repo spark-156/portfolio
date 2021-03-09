@@ -117,6 +117,7 @@ body {
 /* Quarter size painting aka phone  */
 @media screen and (max-width: 480px) {
     body {
+        overflow-x: hidden; /* Fix weird scrolling bug that happens because of slider cube effect overflow */
         font-size: 0.9em;
     }
     #gridContainer {
