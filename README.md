@@ -15,7 +15,16 @@ Dependecies:
 
 Steps to run website:
 1. Git clone this repo
-2. CD in to cloned repo folder
-3. run ```make buildProd``` in the command line
-4. run ```make startProd``` in the command line
-5. go to localhost:80 to see website
+2. cd in to cloned repo folder
+3. cd in to server folder
+4. make a .env file with the following two environment variables: 
+```
+ADMIN_EMAIL = ""
+ADMIN_PASSWORD = ""
+```
+These will be your basicAuth credentials
+
+5. cd back to root of cloned repo folder
+6. run ```make buildProd``` in the command line
+7. run ```make startProd``` in the command line
+8. go to localhost:80 in your browser of choice to see my portfolio
