@@ -60,23 +60,23 @@ imageRouter.post('/new', basicAuth, validateImage, async (req, res, next) => {
             alt: req.body.alt,
         })
         await image.save();
-        res.status(201).send({"_id": image._id});
+        res.status(201).send({ id: image._id });
     } catch {
         next(new Error("Could not upload new image"));
     }
 });
 
 imageRouter.delete('/id/:id', basicAuth, async (req, res, next) => {
-    // TODO make it so you can update the alt only too
     try {
         await ImagesModel.findByIdAndDelete(req.params.id);
-        res.status(200).send()
-    } catch {
-        next(new Error("Could not upload new image"));
+        res.status(200).send({ id: req.params.id });
+    } catch(error) {
+        next(new Error(error));
     }
 });
 
 imageRouter.put('/id/:id', basicAuth, validateImage, async (req, res, next) => {
+    // TODO make it so you can update the alt only too
     try {
         const image = {
             image: {
@@ -86,9 +86,9 @@ imageRouter.put('/id/:id', basicAuth, validateImage, async (req, res, next) => {
             alt: req.body.alt
         };
         await ImagesModel.findByIdAndUpdate(req.params.id, image, { useFindAndModify: false });
-        res.status(200).send();
-    } catch {
-        next(new Error("Could not update image"));
+        res.status(200).send({ id: req.params.id });
+    } catch(error) {
+        next(new Error(error));
     }
 });
 

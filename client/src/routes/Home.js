@@ -5,11 +5,13 @@ import Projects from '../components/Projects';
 import Contact from '../components/Contact';
 import Skills from '../components/Skills';
 import Admin from '../components/Admin';
+import Reference from '../components/Reference';
 
 import './Home.css';
 import '../css/Loading.css';
 
 export default function Home({ isAdmin }) {
+    // TODO update Spin loading to better fit inside the painting
 
     return (
         <section id="gridContainer" style={{aspectRatio: 1 / 1}}>
@@ -18,6 +20,7 @@ export default function Home({ isAdmin }) {
             <Projects isAdmin={isAdmin} />
             <Contact isAdmin={isAdmin} />
             <Skills isAdmin={isAdmin} />
+            <Reference />
             {isAdmin ? <Admin /> : null}
         </section>
     )

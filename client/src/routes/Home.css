@@ -65,6 +65,9 @@ body {
         grid-column: 7 / 9;
         grid-row: 7 / 9;
     }
+    #reference {
+        grid-area: 9 / 5 / 10 / 9;
+    }
 }
 
 /* Half size painting aka tablet */
@@ -106,11 +109,15 @@ body {
         grid-column: 4 / 6;
         grid-row: 11 / 13;
     }
+    #reference {
+        grid-area: 12 / 2 / 12 / 4;
+    }
 }
 
 /* Quarter size painting aka phone  */
 @media screen and (max-width: 480px) {
     body {
+        overflow-x: hidden; /* Fix weird scrolling bug that happens because of slider cube effect overflow */
         font-size: 0.9em;
     }
     #gridContainer {
@@ -151,5 +158,8 @@ body {
         border-right: 0;
         border-bottom: none;
         font-size: 1.5em;
+    }
+    #reference {
+        grid-area: 13 / 1 / 15 / 3;
     }
 }
