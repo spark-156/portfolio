@@ -5,6 +5,7 @@ import Projects from '../components/Projects';
 import Contact from '../components/Contact';
 import Skills from '../components/Skills';
 import Admin from '../components/Admin';
+import Reference from '../components/Reference';
 
 import './Home.css';
 import '../css/Loading.css';
@@ -19,6 +20,7 @@ export default function Home({ isAdmin }) {
             <Projects isAdmin={isAdmin} />
             <Contact isAdmin={isAdmin} />
             <Skills isAdmin={isAdmin} />
+            <Reference />
             {isAdmin ? <Admin /> : null}
         </section>
     )
