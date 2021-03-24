@@ -2,7 +2,7 @@ version: "3"
 services:
   client:
     container_name: portfolio_client_dev
-    restart: always
+    restart: unless-stopped
     build:
       context: ./client
       dockerfile: Dockerfile.dev.yml
@@ -16,7 +16,7 @@ services:
       - server
   server:
     container_name: portfolio_server_dev
-    restart: always
+    restart: unless-stopped
     build:
       context: ./server
       dockerfile: Dockerfile.dev.yml
@@ -30,7 +30,7 @@ services:
     depends_on: 
       - mongodb
   mongodb:
-    restart: always
+    restart: unless-stopped
     image: mongo
     volumes:
       - ./database/dev/db:/data/db
