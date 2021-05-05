@@ -5,6 +5,8 @@ import '../styles/About.css'
 import '../styles/Projects.css'
 import '../styles/loading.css'
 
+import 'antd/dist/antd.css';
+
 import 'swiper/swiper.scss';
 import 'swiper/components/autoplay';
 import 'swiper/components/effect-cube/effect-cube.scss';
