@@ -6,7 +6,8 @@ import Contact from '../components/Contact'
 import Skills from '../components/Skills'
 import Reference from '../components/Reference'
 
-export default function Home() {
+
+export default function Home({ about, images }) {
   return (
     <div>
       <Head>
@@ -17,12 +18,26 @@ export default function Home() {
 
       <section id="gridContainer" style={{aspectRatio: 1 / 1}}>
             <div id="d1" className="blackBorder"/><div className="blackBorder" id="d2"/><div className="blackBorder"id="d3"/><div className="blackBorder"id="d4"/><div className="blackBorder"id="d5"/><div className="blackBorder"id="d6"/><div className="blackBorder"id="d7"/><div className="blackBorder"id="d8"/><div className="blackBorder" id="d9"/><div className="blackBorder"id="d10"/><div className="blackBorder"id="d11"/><div className="blackBorder"id="d12"/><div className="blackBorder" id="d13"/><div id="d14" className="blackBorder"/><div id="d15" className="blackBorder"/><div id="d16" className="blackBorder"/><div id="d17" className="blackBorder"/><div id="d18" className="blackBorder"/>
-            <About />
-            <Projects />
+            <About about={about} images={images}/>
+            {/* <Projects />
             <Contact />
             <Skills  />
-            <Reference />
+            <Reference /> */}
         </section>
     </div>
   )
 }
+
+// This gets called on every request
+export async function getServerSideProps() {
+  // Fetch data from external API
+  const aboutRes = await fetch('https://run.mocky.io/v3/e09bb3f0-f4e4-4c17-a799-8e1e503658ed')
+  const about = await aboutRes.json()
+
+  const imagesRes = await fetch('https://run.mocky.io/v3/41869992-29d6-48a3-ba01-031efe8fffd5')
+  const images = await imagesRes.json()
+
+  // Pass data to the page via props
+  return { props : { about: about, images: images } }
+}
+

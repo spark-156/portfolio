@@ -10,30 +10,14 @@ import SwiperCore, { EffectCube, Autoplay } from 'swiper';
 // init swiper
 SwiperCore.use([EffectCube, Autoplay]);
 
-export default function About() {
-    const [loading, setLoading] = useState(true);
-    const [images, setImages] = useState([{}]);
-    const [about, setAbout] = useState([{ name: "", description: "" }]);
-
-    useEffect(() => {
-        const getAbout = () => {
-            fetch('/api/about/latest')
-                .then(res => { return res.json() })
-                .then(about => { setAbout(about) })
-        }
-        const getImages = () => {
-            fetch('/api/images/all')
-                .then(res => { return res.json() })
-                .then(images => { setImages(images); setLoading(false) })
-        }
-        getAbout();
-        getImages();
-    }, []);
-
+export default function About({ about, images }) {
+    const loading = false;
+    console.log('about', about)
+    console.log('images', images)
     return loading ? <Spin id="loading" /> : (
         <>
             <section id="aboutTop" className="blackBorder">
-                <div id="aboutTopName">{about.length > 0 ? about[0].name : "Luca Bergman"}</div>
+                <div id="aboutTopName">{about[0].name}</div>
                 
             </section>
 
@@ -52,14 +36,15 @@ export default function About() {
                 {images.length > 0 ? (images.map((image, index) => {
                     return (
                         <SwiperSlide key={`image${index}`}>
-                            <img className="aboutImage" alt={image.alt} src={`/api/images/id/${image._id}`} />
+                            {/* src={`/api/images/id/${image._id}`} */}
+                            <img className="aboutImage" alt={image.alt} src={image.src} />
                             <div className="aboutDescriptionBackground">
-                                <div className="aboutDescription">{about.length > 0 ? about[0].description : "No About found!"}</div>
+                                <div className="aboutDescription">{about[0].description}</div>
                             </div>
                         </SwiperSlide>
                     )
                 })) : (<SwiperSlide>
-                    <img className="aboutImage" alt="404 not found" src="../images/404.png" />
+                    <img className="aboutImage" alt="404 not found" src="/404.png" />
                     <div className="aboutDescriptionBackground">
                         <div className="aboutDescription">No about found, please try again later!</div>
                     </div>
