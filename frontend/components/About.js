@@ -1,7 +1,4 @@
-import React, { useState, useEffect } from 'react';
-
-//import antd
-import { Spin } from 'antd';
+import React from 'react';
 
 // import swiper
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -11,14 +8,9 @@ import SwiperCore, { EffectCube, Autoplay } from 'swiper';
 SwiperCore.use([EffectCube, Autoplay]);
 
 export default function About({ about, images }) {
-    const loading = false;
-    console.log('about', about)
-    console.log('images', images)
-    return loading ? <Spin id="loading" /> : (
-        <>
+    return <>
             <section id="aboutTop" className="blackBorder">
                 <div id="aboutTopName">{about[0].name}</div>
-                
             </section>
 
             <Swiper
@@ -51,5 +43,4 @@ export default function About({ about, images }) {
                 </SwiperSlide>)}
             </Swiper>
         </>
-    )
 }
