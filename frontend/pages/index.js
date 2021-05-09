@@ -42,6 +42,20 @@ export default function Home({ images }) {
     }
   ]
 
+  const skills = [
+    {
+      skillName: "Docker", skillGrade: 70
+    }, {
+      skillName: "Javascript", skillGrade: 90
+    }, {
+      skillName: "CSS", skillGrade: 75
+    }, {
+      skillName: "HTML", skillGrade: 70 
+    }, {
+      skillName: "Typescript", skillGrade: 60
+    }
+  ]
+
   return (
     <div>
       <Head>
@@ -55,7 +69,7 @@ export default function Home({ images }) {
             <About about={about} images={images}/>
             <Projects projects={projects} />
             <Contact />
-            {/* <Skills  /> */ }
+            <Skills skills={skills} />
             <Reference />
         </section>
     </div>
