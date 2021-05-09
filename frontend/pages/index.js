@@ -21,8 +21,8 @@ export default function Home({ about, images }) {
             <About about={about} images={images}/>
             {/* <Projects />
             <Contact />
-            <Skills  />
-            <Reference /> */}
+            <Skills  /> */ }
+            <Reference />
         </section>
     </div>
   )
