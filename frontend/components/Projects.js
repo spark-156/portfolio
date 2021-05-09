@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Spin, Col, Row } from 'antd';
+import { Col, Row } from 'antd';
 
 
 // import swiper
@@ -9,26 +9,13 @@ import SwiperCore, { EffectCube, Autoplay } from 'swiper';
 // init swiper
 SwiperCore.use([EffectCube, Autoplay]);
 
-export default function Projects() {
-    const [projects, setProjects] = useState([]);
-    const [loading, setLoading] = useState(true)
+export default function Projects({ projects }) {
     const [swiper, setSwiper] = useState(null);
     const [activeProjectIndex, setActiveProjectIndex] = useState(0);
 
-    useEffect(() => {
-        const getProjects = async () => {
-            fetch('/api/projects/all')
-                .then(res => { return res.json() })
-                .then(projects => { setProjects(projects); setLoading(false) })
-        }
-        getProjects();
-    }, []);
-
     const borderColors = ["#DD0100", "#225095", "#FAC901"];
 
-    // TODO update Spin loading to better fit inside the painting
-    return loading ? <Spin id="loading" /> : (
-        <>
+    return <>
             {projects.length > 0 ? (<section id="projectsList" className="blackBorder">
                 {swiper ? (
                     <ul>
@@ -70,7 +57,7 @@ export default function Projects() {
                         <SwiperSlide key={`project${index}`}>
                             <Row className="projectsTop">
                                 <Col className="projectsTopCol" span={14}>
-                                    <img className="projectImage" src={`/api/projects/id/${project._id}/image`} alt="project" />
+                                    <img className="projectImage" src={project.imgSrc} alt="project" />
                                     <div className="projectImageOverlay"></div>
                                 </Col>
                                 <Col className="projectsText projectsTopCol" span={10}>
@@ -99,5 +86,4 @@ export default function Projects() {
                 }
             </Swiper>
         </>
-    )
 }

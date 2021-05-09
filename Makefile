@@ -1,3 +1,6 @@
+run:
+	docker-compose up -d && docker-compose logs -f
+
 start: 
 	docker-compose -f docker-compose.dev.yml up -d 
 
@@ -7,8 +10,11 @@ log:
 logs: 
 	docker-compose -f docker-compose.dev.yml logs -f
 
+down:
+	docker-compose down
+	
 stop:
-	docker-compose -f docker-compose.dev.yml stop
+	docker-compose stop
 
 build: 
 	docker-compose -f docker-compose.dev.yml build

@@ -1,23 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Spin, Row, Col } from 'antd';
+import { Row, Col } from 'antd';
 
-export default function skills() {
-    const [skills, setSkills] = useState([{skillName: "Javascript", skillGrade: 100}]);
-    const [loading, setLoading] = useState(true)
+export default function skills({ skills }) {
     const backgroundColors = ["#DD0100", "#225095", "#FAC901"];
 
-    useEffect(() => {
-        const getSkills = () => {
-            fetch('/api/skills/latest')
-                .then(res => { return res.json() })
-                .then(skills => { setSkills(skills); setLoading(false) })
-        }
-        getSkills();
-    }, []);
-
-    return loading ? <Spin id="loading" /> : (
-        <div id="skills" style={{color: "#ffffff", backgroundColor: "#000000" }} className="blackBorder">
-            {skills.length > 0 ? skills[0].skills.map((skill, index) => { 
+    return <div id="skills" style={{color: "#ffffff", backgroundColor: "#000000" }} className="blackBorder">
+            {skills.length > 0 ? skills.map((skill, index) => { 
                 return (
                     <Row key={`skill${index}`} gutter={10}>
                         <Col span={10}>
@@ -30,5 +18,4 @@ export default function skills() {
                 )
             }) : <div>No skills found!</div> }
         </div>
-    )
 }
