@@ -1,0 +1,57 @@
+.projectsText {
+    color: #fff;
+}
+
+.projectImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.projectImageOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(211, 1 , 0, 0.4);
+}
+
+.projectsTop, .projectsBottom {
+    height: 50%;
+    background-color: #DD0100;
+}
+
+.projectsTop {
+    text-align: center;
+}
+
+.projectsBottom {
+    padding: 0 0.5vw;
+}
+
+.projectsTopCol {
+    height: 100%;
+    position: relative;
+}
+
+#projectsList {
+    padding: 5px;
+}
+
+#projectsList > ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+}
+
+#projectsList > ul:hover {
+    cursor: pointer;
+}
+
+#activeProject {
+    font-weight: bold;
+    padding-left: 3px;
+    border-left: 6px solid #FAC901;
+}

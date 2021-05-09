@@ -1,0 +1,165 @@
+@import "./desktop.css";
+@import "./tablet.css";
+@import "./phone.css";
+/* Border properties are as follows:
+Borders are always on all sides except if absent
+width: 4px
+type: solid
+color: black */
+
+body {
+    /* background-size: cover;
+    background-image: url("../images/white-canvas.jpg");
+    background-repeat: no-repeat; */
+    font-size: 1em;
+}
+
+#gridContainer {
+    height: 100vh;
+    display: grid;
+}
+
+.blackBorder {
+    border: 4px solid black;
+}
+
+/* Full size painting aka desktop */
+@media screen and (min-width: 1000px) {
+    body {
+        font-size: 1em;
+    }
+    #gridContainer {
+        padding: 0;
+        margin: 0 auto;
+        width: 100vh;
+        min-width: 850px;
+        min-height: 850px;
+        overflow: scroll;
+        /* 9 columns and 10 rows for a full size painting */
+        grid-template-columns: 0.3fr 0.6fr 1fr 1fr 1fr 1fr 1fr 1fr 0.6fr;
+        grid-template-rows: 0.8fr 1fr 1.5fr 1fr 1fr 0.8fr 1.2fr 0.8fr 0.6fr 0.3fr;
+    }
+    #aboutTop, #aboutBottom {
+        grid-column: 7 / 9;
+    }
+    #aboutTop {
+        border-top: 0;
+        grid-row: 1;
+        border-top: 0;
+    }
+    #aboutBottom {
+        grid-row: 2 / 4;
+    }
+    #projects {
+        grid-column: 3 / 7;
+        grid-row: 2 / 6;
+    }
+    #projectsList {
+        grid-area: 4 / 7 / 6 / 7;
+    }
+    #skills {
+        grid-column: 3 / 5;
+        grid-row: 6 / 9;
+    }
+    #contact {
+        grid-column: 7 / 9;
+        grid-row: 7 / 9;
+    }
+    #reference {
+        grid-area: 9 / 5 / 10 / 9;
+    }
+}
+
+/* Half size painting aka tablet */
+
+@media screen and (min-width: 481px) and (max-width: 1000px) {
+    body {
+        font-size: 1.2em;
+    }
+    #gridContainer {
+        width: 100vw;
+        height: 200vw;
+        /* 2 side columns are not used for content */
+        /* 6 columns and 13 rows for a half size painting */
+        grid-template-columns: 0.3fr 1fr 1fr 1fr 1fr 0.3fr;
+        grid-template-rows: 0.7fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 0.5fr;
+    }
+    #aboutTop, #aboutBottom {
+        grid-column: 4 / 6;
+    }
+    #aboutTop {
+        grid-row: 1;
+        border-top: 0;
+    }
+    #aboutBottom {
+        grid-row: 2 / 4;
+    }
+    #projects {
+        grid-column: 2 / 6;
+        grid-row: 4 / 9;
+    }
+    #projectsList {
+        grid-area: 9 / 5 / 11 / 5;
+    }
+    #skills {
+        grid-column: 2 / 4;
+        grid-row: 9 / 12;
+    }
+    #contact {
+        grid-column: 4 / 6;
+        grid-row: 11 / 13;
+    }
+    #reference {
+        grid-area: 12 / 2 / 12 / 4;
+    }
+}
+
+/* Quarter size painting aka phone  */
+@media screen and (max-width: 480px) {
+    body {
+        overflow-x: hidden; /* Fix weird scrolling bug that happens because of slider cube effect overflow */
+        font-size: 0.9em;
+    }
+    #gridContainer {
+        width: 100vw;
+        height: 300vw;
+        /* 5 columns and 13 rows for a quarter size painting */
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+    #aboutTop, #aboutBottom {
+        grid-column: 3 / 6;
+        border-right: 0;
+    }
+    #aboutTop {
+        border-top: 0;
+        grid-row: 1;
+    }
+    #aboutBottom {
+        grid-row: 2 / 4;
+    }
+    #projects {
+        grid-area: 4 / 1 / 10 / 6;
+        border-right: 0;
+        border-left: 0;
+        font-size: 1.2em;
+    }
+    #projectsList {
+        grid-area: 10 / 4 / 13 / 6;
+        border-right: 0;
+    }
+    #skills {
+        grid-area: 10 / 1 / 13 / 4;
+        border-left: 0;
+        font-size: 1.2em
+    }
+    #contact {
+        grid-area: 13 / 3 / 15 / 6;
+        border-right: 0;
+        border-bottom: none;
+        font-size: 1.5em;
+    }
+    #reference {
+        grid-area: 13 / 1 / 15 / 3;
+    }
+}
