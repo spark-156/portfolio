@@ -54,8 +54,8 @@ export default function Home({ images }) {
             <div id="d1" className="blackBorder"/><div className="blackBorder" id="d2"/><div className="blackBorder"id="d3"/><div className="blackBorder"id="d4"/><div className="blackBorder"id="d5"/><div className="blackBorder"id="d6"/><div className="blackBorder"id="d7"/><div className="blackBorder"id="d8"/><div className="blackBorder" id="d9"/><div className="blackBorder"id="d10"/><div className="blackBorder"id="d11"/><div className="blackBorder"id="d12"/><div className="blackBorder" id="d13"/><div id="d14" className="blackBorder"/><div id="d15" className="blackBorder"/><div id="d16" className="blackBorder"/><div id="d17" className="blackBorder"/><div id="d18" className="blackBorder"/>
             <About about={about} images={images}/>
             <Projects projects={projects} />
-            {/* <Contact />
-            <Skills  /> */ }
+            <Contact />
+            {/* <Skills  /> */ }
             <Reference />
         </section>
     </div>
