@@ -7,7 +7,30 @@ import Skills from '../components/Skills'
 import Reference from '../components/Reference'
 
 
-export default function Home({ about, images }) {
+export default function Home({ images }) {
+
+  // TODO create database, backend and admin panel for easy changing
+  const about = {
+    name: "Luca Bergman",
+    description: "Passionate full-stack developer"
+  }
+
+  images = [
+    {
+      alt: "Picture of me",
+      src: "/face1.jpg"
+    }, {
+      alt: "Picture of me",
+      src: "/face2.jpg"
+    }, {
+      alt: "Picture of me",
+      src: "/face3.jpg"
+    }, {
+      alt: "Picture of me",
+      src: "/face4.jpg"
+    }
+  ]
+
   return (
     <div>
       <Head>
@@ -28,16 +51,17 @@ export default function Home({ about, images }) {
   )
 }
 
-// This gets called on every request
-export async function getServerSideProps() {
-  // Fetch data from external API
-  const aboutRes = await fetch('https://run.mocky.io/v3/e09bb3f0-f4e4-4c17-a799-8e1e503658ed')
-  const about = await aboutRes.json()
+// TODO backend with api calls
+// // This gets called on every request
+// export async function getServerSideProps() {
+//   // Fetch data from external API
+//   const aboutRes = await fetch('https://run.mocky.io/v3/e09bb3f0-f4e4-4c17-a799-8e1e503658ed')
+//   const about = await aboutRes.json()
 
-  const imagesRes = await fetch('https://run.mocky.io/v3/41869992-29d6-48a3-ba01-031efe8fffd5')
-  const images = await imagesRes.json()
+//   const imagesRes = await fetch('https://run.mocky.io/v3/41869992-29d6-48a3-ba01-031efe8fffd5')
+//   const images = await imagesRes.json()
 
-  // Pass data to the page via props
-  return { props : { about: about, images: images } }
-}
+//   // Pass data to the page via props
+//   return { props : { about: about, images: images } }
+// }
 

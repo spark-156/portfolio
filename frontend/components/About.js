@@ -10,7 +10,7 @@ SwiperCore.use([EffectCube, Autoplay]);
 export default function About({ about, images }) {
     return <>
             <section id="aboutTop" className="blackBorder">
-                <div id="aboutTopName">{about[0].name}</div>
+                <div id="aboutTopName">{about.name}</div>
             </section>
 
             <Swiper
@@ -31,7 +31,7 @@ export default function About({ about, images }) {
                             {/* src={`/api/images/id/${image._id}`} */}
                             <img className="aboutImage" alt={image.alt} src={image.src} />
                             <div className="aboutDescriptionBackground">
-                                <div className="aboutDescription">{about[0].description}</div>
+                                <div className="aboutDescription">{about.description}</div>
                             </div>
                         </SwiperSlide>
                     )
