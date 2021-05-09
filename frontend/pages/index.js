@@ -62,6 +62,8 @@ export default function Home() {
       skillName: "Typescript", skillGrade: 60
     }, {
       skillName: "Python", skillGrade: 80
+    }, {
+      skillName: "Git", skillGrade: 85
     }
   ]
 
