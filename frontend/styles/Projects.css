@@ -27,7 +27,7 @@
 }
 
 .projectsBottom {
-    overflow-y: scroll;
+    overflow-y: auto;
     padding: 0 0.5vw;
 }
 
