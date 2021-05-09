@@ -31,6 +31,17 @@ export default function Home({ images }) {
     }
   ]
 
+  const projects = [
+    {
+      title: "LeAn",
+      imgSrc: "/LeAn.png",
+      startDate: "2020-08-31T16:02:49.067Z",
+      endDate: null,
+      company: "DevDroplets",
+      description: "LeAn is a tool I am currently developing for Open-ICT with the LeAn-team. It allows teachers and students to quickly analyze their progress withing a peer-review based study. Its made with a React frontend, NestJS backend and hosted within docker. I love working with all those technologies and consider myself quite good at them even. I have learned so incredibly much and I can't wait to learn even more from LeAn."
+    }
+  ]
+
   return (
     <div>
       <Head>
@@ -42,8 +53,8 @@ export default function Home({ images }) {
       <section id="gridContainer" style={{aspectRatio: 1 / 1}}>
             <div id="d1" className="blackBorder"/><div className="blackBorder" id="d2"/><div className="blackBorder"id="d3"/><div className="blackBorder"id="d4"/><div className="blackBorder"id="d5"/><div className="blackBorder"id="d6"/><div className="blackBorder"id="d7"/><div className="blackBorder"id="d8"/><div className="blackBorder" id="d9"/><div className="blackBorder"id="d10"/><div className="blackBorder"id="d11"/><div className="blackBorder"id="d12"/><div className="blackBorder" id="d13"/><div id="d14" className="blackBorder"/><div id="d15" className="blackBorder"/><div id="d16" className="blackBorder"/><div id="d17" className="blackBorder"/><div id="d18" className="blackBorder"/>
             <About about={about} images={images}/>
-            {/* <Projects />
-            <Contact />
+            <Projects projects={projects} />
+            {/* <Contact />
             <Skills  /> */ }
             <Reference />
         </section>
