@@ -1,39 +1,16 @@
-version: "3"
-services:
-  client:
-    container_name: portfolio_client
-    restart: always
-    build:
-      context: ./client
-      dockerfile: Dockerfile.prod.yml
-    ports:
-      - '80:80'
-    networks: 
-      - frontend
-    depends_on: 
-      - server
-  server:
-    container_name: portfolio_server
-    restart: always
-    build:
-      context: ./server
-      dockerfile: Dockerfile.prod.yml
-    networks: 
-      - backend
-      - frontend
-    depends_on: 
-      - mongodb
-  mongodb:
-    restart: always
-    image: mongo
-    volumes:
-      - ./database/prod/db:/data/db
-    networks: 
-      - backend
-      
-networks: 
-  frontend:
-    driver: bridge
-  backend:
-    driver: bridge
+version: "3.3"
 
+services:
+  frontend:
+    container_name: "frontend"
+    restart: unless-stopped
+    build: 
+      context: frontend
+      dockerfile: Dockerfile
+    ports: 
+      - 3000:3000
+    volumes: 
+      - ./frontend/:/usr/src/app/
+      - /usr/src/app/node_modules
+      - /usr/src/app/.next
+    command: yarn start
