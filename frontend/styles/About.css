@@ -4,6 +4,7 @@
     color: #ffffff;
     font-size: 1.5em;
     position: relative;
+    overflow-x: hidden;
 }
 
 #aboutTop {

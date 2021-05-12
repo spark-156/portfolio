@@ -1,3 +1,7 @@
+.projects {
+    overflow: hidden;
+}
+
 .projectsText {
     color: #fff;
 }

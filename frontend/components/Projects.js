@@ -54,7 +54,7 @@ export default function Projects({ projects }) {
             >
                 {projects.length > 0 ? (projects.map((project, index) => {
                     return (
-                        <SwiperSlide key={`project${index}`}>
+                        <SwiperSlide key={`project${index}`} className={"projects"}>
                             <Row className="projectsTop">
                                 <Col className="projectsTopCol" span={14}>
                                     <img className="projectImage" src={project.imgSrc} alt="project" />
