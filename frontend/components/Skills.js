@@ -9,7 +9,7 @@ export default function skills({ skills }) {
                 return (
                     <Row key={`skill${index}`} gutter={10}>
                         <Col span={10}>
-                            <div style={{ paddingLeft: 8 }} className="skillsName">{skill.skillName}</div>
+                            <div className="skillsName">{skill.skillName}</div>
                         </Col>
                         <Col span={14}>
                             <span className="skillsBar" style={{backgroundColor: backgroundColors[index % backgroundColors.length], width: `${skill.skillGrade}%`, display: "block", height: "95%"}}/>
