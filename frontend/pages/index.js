@@ -38,14 +38,14 @@ export default function Home() {
       startDate: "2020-08-31T16:02:49.067Z",
       endDate: null,
       company: "DevDroplets",
-      description: "LeAn is a tool I am currently developing for Open-ICT with the LeAn-team. It allows teachers and students to quickly analyze their progress withing a peer-review based study. Its made with a React frontend, NestJS backend and hosted within docker. I love working with all those technologies and consider myself quite good at them even. I have learned so incredibly much and I can't wait to learn even more from LeAn."
+      description: "LeAn is a tool I am currently developing for Open-ICT with the LeAn-team. It allows teachers and students to quickly analyze their progress within a peer-review based study. Its made with a React frontend, NestJS backend and hosted within kubernetes. I love working with all of those frameworks/ technologies and consider myself quite good at them. I have learned an incredible amount of things from this project and I can't wait to learn even more from LeAn."
     }, {
       title: "Profile website",
       imgSrc: "/piet-mondriaan.jpeg",
       startDate: "2021-03-23T16:02:49.067Z",
       endDate: null,
       company: "",
-      description: "My study recently required me to build a portfolio website to show off all my skills. This was perfect since I already had such a plan in mind! Now I'll admit I'm not the greatest designer, which is why I chose to use a beautiful painting from piet mondriaan. I used NextJS for its Server side rendering and built in page routing. I also love working with react so theres that too. I plan to make the site even more dynamic with an admin panel that I plan to build with a NestJS backend for its typescript and wonderful code structure."
+      description: "My study recently required me to build a portfolio website to show off all my skills. This was perfect since I already had such a plan in mind! Now I'll admit I'm not the greatest designer, which is why I chose to use a beautiful painting from Piet Mondriaan. I used NextJS for it's incredible optimization and built in page routing. I also love working with react so theres that too. I plan to make the site even more dynamic with an admin panel that I plan to build with a NestJS backend for its typescript and wonderful code structure. It is hosted on my own server with docker."
     }
   ]
 
