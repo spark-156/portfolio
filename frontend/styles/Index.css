@@ -122,10 +122,11 @@ body {
     }
     #gridContainer {
         width: 100vw;
-        height: 300vw;
-        /* 5 columns and 13 rows for a quarter size painting */
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        /* height: 300vw; */
+        grid-template-columns: repeat(5, 1fr);
+        /* grid-auto-flow: dense; */
+        /* grid-auto-rows: 22vw; */
+        grid-template-rows: 22vw 22vw 22vw 22vw 22vw 22vw 33vw 33vw 33vw 22vw 22vw 22vw 22vw 22vw;
     }
     #aboutTop, #aboutBottom {
         grid-column: 3 / 6;
