@@ -1,4 +1,5 @@
 #aboutTop, #aboutBottom {
+    overflow: hidden; /* Fix weird scrolling bug that happens because of slider cube effect overflow */
     width: 100%;
     text-align: center;
     color: #ffffff;
