@@ -1,0 +1,11 @@
+:root {
+    --body-font: 'Karla';
+    --title-font: 'Playfair Display';
+
+    --black: #1C1C1C;
+    --white: #FAFAFA;
+    --blue: #0033ff;
+    --yellow: #FFCC00;
+
+    --phone-size: 600px;
+}

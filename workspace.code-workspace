@@ -1,0 +1,20 @@
+{
+  "folders": [
+    {
+      "path": ".",
+      "name": "{Root}"
+    },
+    {
+      "path": "frontend/",
+      "name": "{MS} Frontend"
+    }
+  ],
+  "settings": {
+    "git.ignoreLimitWarning": true,
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.formatOnSave": true,
+    "eslint.format.enable": true,
+    "eslint.codeActionsOnSave.mode": "all",
+    "html.completion.attributeDefaultValue": "doublequotes"
+  }
+}

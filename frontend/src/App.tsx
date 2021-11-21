@@ -5,11 +5,11 @@ import {
   Route,
   Routes
 } from "react-router-dom";
-import { Index } from './components/Index';
-import { Projects } from './components/Projects';
-import { Skills } from './components/Skills';
-import { Contact } from './components/Contact';
-import { NotFound } from './components/NotFound';
+import { Contact } from './Views/Contact';
+import { NotFound } from './Views/NotFound';
+import { Index } from './Views/Index';
+import { Skills } from './Views/Skills';
+import { Projects } from './Views/Projects';
 
 function App() {
   return <Router>
@@ -20,7 +20,7 @@ function App() {
       <Route path="/skills" element={<Skills />} />
       <Route path="/contact" element={<Contact />} />
     </Routes>
-  </Router>
+  </Router> 
 }
 
 export default App;
