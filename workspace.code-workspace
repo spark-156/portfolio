@@ -15,6 +15,9 @@
     "editor.formatOnSave": true,
     "eslint.format.enable": true,
     "eslint.codeActionsOnSave.mode": "all",
-    "html.completion.attributeDefaultValue": "doublequotes"
+    "html.completion.attributeDefaultValue": "doublequotes",
+    "[javascriptreact]": {
+      "editor.defaultFormatter": "vscode.typescript-language-features"
+    }
   }
 }
