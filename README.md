@@ -1,5 +1,5 @@
 # portfolio
-This is my portfolio website developed in typescript react.
+This is my portfolio website developed in typescript vue with vite.
 ### Running the app locally
 
 Make sure you have docker and docker compose installed.
