@@ -3,7 +3,7 @@ version: "3"
 services:
   traefik:
     image: traefik:v2.4
-    container_name: portfolio-traefik-dev
+    container_name: portfolio-traefik
     command:
       - --api.insecure=true
       - --providers.docker
@@ -11,20 +11,20 @@ services:
       - --entrypoints.web.address=:80
     ports:
       - "80:80"
-      - "8080:8080"
+      - "8082:8080"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
 
 
   frontend:
-    container_name: portfolio-frontend-dev
-    build: 
+    # image: vue-to-do-app-frontend
+    container_name: portfolio-frontend
+    build:
       context: ./frontend
-      target: dev
-    volumes:
-      - ./frontend:/app
-    labels:
+      target: production
+    labels: 
       traefik.enable: true
       traefik.http.routers.frontend.rule: Host(`localhost`)
       traefik.http.routers.frontend.entrypoints: web
-      traefik.http.services.frontend.loadbalancer.server.port: 8080
+      traefik.http.services.frontend.loadbalancer.server.port: 80
+ 
