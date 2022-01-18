@@ -1,5 +1,5 @@
 <template>
-  <image-vue :src="'https://www.bostonmagazine.com/wp-content/uploads/sites/2/2021/08/rubber-duck-stock-t.jpg'" />
+  <image-vue :src="'landscape.jpeg'" />
   <colored-background-div-vue :color="'purple'">
     <slot>
       Fluent in:
