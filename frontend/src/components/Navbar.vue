@@ -1,9 +1,7 @@
 <template>
   <header :class="{'headroom--unpinned': scrolled}" v-on:scroll="handleScroll" class="headroom header">
     <nav>
-      <div>
         <router-link to="/" class="title">Luca Bergman</router-link>
-      </div>
     </nav>
   </header>
 </template>
@@ -39,7 +37,7 @@ export default defineComponent({
   created () {
     window.addEventListener('scroll', this.handleScroll)
     // hide after 6 seconds
-    setTimeout(() => { this.scrolled = true }, 6000)
+    // setTimeout(() => { this.scrolled = true }, 6000)
   },
   unmounted () {
     window.removeEventListener('scroll', this.handleScroll)
@@ -50,14 +48,14 @@ export default defineComponent({
 <style scoped lang="scss">
 .title, .title:visited {
   font-family: $fonts-title;
-  font-size: $lengths-3;
+  font-size: $lengths-6;
   text-decoration: none;
   color: $colors-blue;
 }
 
 .header {
   width: 100%;
-  height: 50px;
+  height: $lengths-10;
   position: fixed;
   top: 0;
   z-index: 1;
