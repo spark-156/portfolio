@@ -1,5 +1,5 @@
 <template>
-  <header :class="{'headroom--unpinned': scrolled}" v-on="handleScroll" class="headroom header">
+  <header :class="{'headroom--unpinned': scrolled}" v-on:scroll="handleScroll" class="headroom header">
     <nav>
       <div>
         <router-link to="/" class="title">Luca Bergman</router-link>
