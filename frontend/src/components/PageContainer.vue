@@ -17,6 +17,7 @@ export default defineComponent({
   display: grid;
   grid-auto-flow: row;
   grid-auto-rows: 50vh 100vh;
+  // grid-auto-rows: 100vh;
   place-items: center;
 
   @media (min-width: 800px){

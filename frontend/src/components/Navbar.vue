@@ -47,12 +47,12 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .title, .title:visited {
-  font-family: var(--ldb-fonts-title);
-  font-size: var(--ldb-lengths-3);
+  font-family: $fonts-title;
+  font-size: $lengths-3;
   text-decoration: none;
-  color: var(--ldb-colors-blue);
+  color: $colors-blue;
 }
 
 .header {
@@ -61,8 +61,8 @@ export default defineComponent({
   position: fixed;
   top: 0;
   z-index: 1;
-  padding: var(--ldb-lengths-1);
-  background-color: var(--ldb-colors-white);
+  padding: $lengths-1;
+  background-color: $colors-white;
 }
 
 .headroom {

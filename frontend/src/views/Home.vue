@@ -1,21 +1,27 @@
 <template>
   <image-vue :src="'/portfoliofoto.jpg'" />
-  <div class="home">
-    hi i am home
-  </div><div>I am a picture2</div>
-  <div class="home">
-    hi i am home2
-  </div>
+  <colored-background-div-vue :color="'blue'">
+    My name is Luca Bergman
+    <br />
+    I am a pasionate full stack developer
+  </colored-background-div-vue>
+
+  <image-vue :src="'https://www.bostonmagazine.com/wp-content/uploads/sites/2/2021/08/rubber-duck-stock-t.jpg'" />
+  <colored-background-div-vue :color="'purple'">
+    Fluent in Docker, Python, Javascript &amp; Typescript
+  </colored-background-div-vue>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 import ImageVue from '@/components/Image.vue'
+import ColoredBackgroundDiv from '@/components/ColoredBackgroundDiv.vue'
 
 export default defineComponent({
   name: 'Home',
   components: {
-    'image-vue': ImageVue
+    'image-vue': ImageVue,
+    'colored-background-div-vue': ColoredBackgroundDiv
   }
 })
 </script>
