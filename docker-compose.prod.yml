@@ -17,7 +17,7 @@ services:
 
 
   frontend:
-    # image: vue-to-do-app-frontend
+    image: spark156/portfolio-frontend
     container_name: portfolio-frontend
     build:
       context: ./frontend
