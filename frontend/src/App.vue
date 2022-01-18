@@ -19,7 +19,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Karla&family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
 
 #app {
   font-family: Karla, sans-serif;

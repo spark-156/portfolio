@@ -3,7 +3,7 @@
   <colored-background-div-vue :color="'blue'">
     My name is Luca Bergman
     <br />
-    And I am a passionate full stack developer
+    I am a passionate full stack developer
   </colored-background-div-vue>
 
   <list-of-skills-vue></list-of-skills-vue>

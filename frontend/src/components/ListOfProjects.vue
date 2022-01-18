@@ -1,5 +1,5 @@
 <template>
-  <image-vue :src="'/secondaryfoto.jpeg'" />
+  <image-vue :src="'/berlin.jpeg'" />
   <colored-background-div-vue :color="'yellow'">
     <slot>
       Some of my hobby projects you can check out:

@@ -82,20 +82,19 @@ export default defineComponent({
 .title, .title:visited {
   grid-area: title;
 
-  font-family: $fonts-title;
-  font-size: $lengths-6;
+  font-size: $lengths-5;
   text-decoration: none;
   color: $colors-blue;
 
   overflow: hidden;
   text-overflow: ellipsis;
-  max-height: $lengths-8;
-  line-height: $lengths-8;
+  max-height: $lengths-9;
+  line-height: $lengths-9;
 }
 
 .header {
   width: 100%;
-  height: $lengths-10;
+  height: $lengths-11;
 
   position: fixed;
   top: 0;
