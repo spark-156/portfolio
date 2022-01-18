@@ -2,10 +2,15 @@
   <header :class="{'headroom--unpinned': scrolled}" v-on:scroll="handleScroll" class="headroom header">
     <nav class="container">
       <router-link to="/" class="title">Luca Bergman</router-link>
-      <button-vue class="modalButton" :onClick="() => showModal = true" v-bind:color="'red'">Menu</button-vue>
+      <button-vue v-if="!showModal" class="modalButton" :onClick="() => showModal = true" v-bind:color="'red'">Menu</button-vue>
     </nav>
   </header>
-  <modal-vue v-if="showModal" @close="showModal = false" />
+  <modal-vue v-if="showModal" @close="showModal = false">
+    <router-link @click="() => showModal = false" to="/">Luca Bergman</router-link>
+    <router-link @click="() => showModal = false" to="/skills">Skills</router-link>
+    <router-link @click="() => showModal = false" to="/projects">Projects</router-link>
+    <router-link @click="() => showModal = false" to="/contact">Contact</router-link>
+  </modal-vue>
 </template>
 
 <script lang="ts">
@@ -95,7 +100,7 @@ export default defineComponent({
   position: fixed;
   top: 0;
 
-  z-index: 1;
+  z-index: 10;
   padding: $lengths-1;
   background-color: $colors-white;
 }
@@ -110,5 +115,4 @@ export default defineComponent({
 .headroom--unpinned {
     transform: translateY(-100%);
 }
-
 </style>
