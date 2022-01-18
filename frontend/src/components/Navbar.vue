@@ -1,23 +1,31 @@
 <template>
   <header :class="{'headroom--unpinned': scrolled}" v-on:scroll="handleScroll" class="headroom header">
-    <nav>
-        <router-link to="/" class="title">Luca Bergman</router-link>
+    <nav class="container">
+      <router-link to="/" class="title">Luca Bergman</router-link>
+      <button-vue class="modalButton" :onClick="() => showModal = true" v-bind:color="'red'">Menu</button-vue>
     </nav>
   </header>
+  <modal-vue v-if="showModal" @close="showModal = false" />
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import ButtonVue from './Button.vue'
+import ModalVue from './Modal.vue'
 
 export default defineComponent({
   data () {
     return {
       limitPosition: 200,
       scrolled: false,
-      lastPosition: 0
+      lastPosition: 0,
+      showModal: false
     }
   },
-
+  components: {
+    'modal-vue': ModalVue,
+    'button-vue': ButtonVue
+  },
   methods: {
     handleScroll () {
       if (this.lastPosition < window.scrollY && this.limitPosition < window.scrollY) {
@@ -46,17 +54,43 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
+.container {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: 1fr;
+
+  grid-auto-flow: row;
+  justify-content: stretch;
+  justify-items: start;
+  align-items: center;
+  grid-template-areas:
+    "title modalButton";
+
+  max-height: $lengths-10;
+}
+
+.modalButton {
+  justify-self: end;
+  grid-area: modalButton;
+}
+
 .title, .title:visited {
+  grid-area: title;
+
   font-family: $fonts-title;
   font-size: $lengths-6;
   text-decoration: none;
   color: $colors-blue;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: $lengths-8;
+  line-height: $lengths-8;
 }
 
 .header {
   width: 100%;
   height: $lengths-10;
-  overflow-y: hidden;
 
   position: fixed;
   top: 0;
