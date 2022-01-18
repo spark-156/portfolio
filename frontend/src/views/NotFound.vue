@@ -3,7 +3,7 @@
     404 Not Found
   </colored-background-div-vue>
   <colored-background-div-vue :color="'purple'">
-    It seems that the page that you were looking for does not exist. Click here:
+    It seems that the page that you were looking for does not exist, click here:
     <br />
     <br />
     <div>
