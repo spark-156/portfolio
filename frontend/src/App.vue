@@ -1,6 +1,6 @@
 <template>
   <nav-bar />
-  <router-view class="router-view" />
+  <router-view />
 </template>
 
 <script lang="ts">
@@ -46,8 +46,6 @@ export default defineComponent({
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--ldb-colors-black);
-
-  height: 200vh;
 }
 
 body, html {
@@ -58,11 +56,5 @@ body, html {
 
 * {
   box-sizing: border-box;
-}
-</style>
-
-<style scoped>
-.router-view {
-  margin-top: 50px;
 }
 </style>
