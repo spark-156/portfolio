@@ -56,8 +56,11 @@ export default defineComponent({
 .header {
   width: 100%;
   height: $lengths-10;
+  overflow-y: hidden;
+
   position: fixed;
   top: 0;
+
   z-index: 1;
   padding: $lengths-1;
   background-color: $colors-white;

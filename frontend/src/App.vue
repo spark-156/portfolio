@@ -26,6 +26,8 @@ export default defineComponent({
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: $colors-black;
+
+  min-width: 300px;
 }
 
 body, html {
