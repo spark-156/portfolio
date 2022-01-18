@@ -47,7 +47,7 @@ jobs:
             file: ./frontend/Dockerfile
             builder: ${{ steps.buildx.outputs.name }}
             push: true
-            tags:  ${{ secrets.DOCKER_HUB_USERNAME }}/porftolio-frontend:latest
+            tags:  ${{ secrets.DOCKER_HUB_USERNAME }}/portfolio-frontend:latest
             cache-from: type=local,src=/tmp/.buildx-cache
             cache-to: type=local,dest=/tmp/.buildx-cache
         - name: Image digest
