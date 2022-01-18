@@ -1,6 +1,6 @@
 <template>
   <colored-background-div-vue :color="'red'">
-    Get in to contact with me!
+    Get in contact with me!
   </colored-background-div-vue>
   <colored-background-div-vue :color="'purple'">
     <link-vue href="https://cv.lucabergman.com/">CV</link-vue>
