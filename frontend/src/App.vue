@@ -1,6 +1,6 @@
 <template>
   <nav-bar />
-  <router-view />
+  <router-view class="router-view" />
 </template>
 
 <script lang="ts">
@@ -27,6 +27,7 @@ export default defineComponent({
 
   --ldb-fonts-title: 'Playfair Display';
   --ldb-fonts-default: Karla;
+
   --ldb-lengths-1: 8px;
   --ldb-lengths-2: 16px;
   --ldb-lengths-3: 24px;
@@ -45,10 +46,23 @@ export default defineComponent({
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--ldb-colors-black);
-  min-width: 360px;
+
+  height: 200vh;
+}
+
+body, html {
+  padding: 0;
+  margin: 0;
+  background-color: var(--ldb-colors-white);
+}
+
+* {
+  box-sizing: border-box;
 }
 </style>
 
 <style scoped>
-
+.router-view {
+  margin-top: 50px;
+}
 </style>

@@ -1,17 +1,77 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link>
-    <router-link to="/contact">About</router-link>
-    <router-link to="/about">Contact</router-link>
-    <router-link to="/projects">Project</router-link>
-    <router-link to="/skills">Skills</router-link>
-  </nav>
+  <header :class="{'headroom--unpinned': scrolled}" v-on="handleScroll" class="headroom header">
+    <nav>
+      <div>
+        <router-link to="/" class="title">Luca Bergman</router-link>
+      </div>
+    </nav>
+  </header>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 
 export default defineComponent({
+  data () {
+    return {
+      limitPosition: 200,
+      scrolled: false,
+      lastPosition: 0
+    }
+  },
 
+  methods: {
+    handleScroll () {
+      if (this.lastPosition < window.scrollY && this.limitPosition < window.scrollY) {
+        this.scrolled = true
+        // move up!
+      }
+
+      if (this.lastPosition > window.scrollY) {
+        this.scrolled = false
+        // move down
+      }
+
+      this.lastPosition = window.scrollY
+      // this.scrolled = window.scrollY > 250;
+    }
+  },
+  created () {
+    window.addEventListener('scroll', this.handleScroll)
+  },
+  unmounted () {
+    window.removeEventListener('scroll', this.handleScroll)
+  }
 })
 </script>
+
+<style scoped>
+.title, .title:visited {
+  font-family: var(--ldb-fonts-title);
+  font-size: var(--ldb-lengths-3);
+  text-decoration: none;
+  color: var(--ldb-colors-blue);
+}
+
+.header {
+  width: 100%;
+  height: 50px;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  padding: var(--ldb-lengths-1);
+  background-color: var(--ldb-colors-white);
+}
+
+.headroom {
+    will-change: transform;
+    transition: transform 200ms linear;
+}
+.headroom--pinned {
+    transform: translateY(0%);
+}
+.headroom--unpinned {
+    transform: translateY(-100%);
+}
+
+</style>
