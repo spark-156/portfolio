@@ -38,6 +38,8 @@ export default defineComponent({
   },
   created () {
     window.addEventListener('scroll', this.handleScroll)
+    // hide after 6 seconds
+    setTimeout(() => { this.scrolled = true }, 6000)
   },
   unmounted () {
     window.removeEventListener('scroll', this.handleScroll)
