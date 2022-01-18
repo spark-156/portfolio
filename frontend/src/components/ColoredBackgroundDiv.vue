@@ -35,6 +35,7 @@ export default defineComponent({
 
   display: grid;
   place-content: center;
+  gap: $lengths-half;
 
   padding: $lengths-1;
 }
