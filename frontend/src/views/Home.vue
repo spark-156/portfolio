@@ -8,7 +8,13 @@
 
   <image-vue :src="'https://www.bostonmagazine.com/wp-content/uploads/sites/2/2021/08/rubber-duck-stock-t.jpg'" />
   <colored-background-div-vue :color="'purple'">
-    Fluent in Docker, Python, Javascript &amp; Typescript
+    Fluent in
+    <a href="/docker">Docker</a>
+    <a href="/linux">Linux</a>
+    <a href="/python">Python</a>
+    <a href="/javascript">Javascript</a>
+    &amp;
+    <a href="/typescript">Typescript</a>
   </colored-background-div-vue>
 </template>
 
