@@ -1,5 +1,5 @@
 <template>
-  <div>I am a picture</div>
+  <image-vue :src="'/portfoliofoto.jpg'" />
   <div class="home">
     hi i am home
   </div><div>I am a picture2</div>
@@ -10,8 +10,12 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import ImageVue from '@/components/Image.vue'
 
 export default defineComponent({
-  name: 'Home'
+  name: 'Home',
+  components: {
+    'image-vue': ImageVue
+  }
 })
 </script>
