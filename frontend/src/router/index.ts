@@ -7,49 +7,40 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Home',
     component: Home
   },
+  // {
+  //   path: '/about',
+  //   name: 'About',
+  //   // route level code-splitting
+  //   // this generates a separate chunk (about.[hash].js) for this route
+  //   // which is lazy-loaded when the route is visited.
+  //   component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+  // },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }, {
     path: '/contact',
     name: 'Contact',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/Contact.vue')
-  }, {
+    component: () => import('../views/Contact.vue')
+  },
+  {
     path: '/skills',
     name: 'Skills',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/Skills.vue')
-  }, {
+    component: () => import('../views/Skills.vue')
+  },
+  {
     path: '/projects',
     name: 'Projects',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/Projects.vue')
-  }, {
-    path: '/projects/:id',
-    name: 'Project',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/Project.vue')
-  }, {
-    path: '/skills/:id',
-    name: 'Skill',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/Skill.vue')
-  }, {
+    component: () => import('../views/Projects.vue')
+  },
+  // {
+  //   path: '/projects/:id',
+  //   name: 'Project',
+  //   component: () => import('../views/Project.vue')
+  // },
+  // {
+  //   path: '/skills/:id',
+  //   name: 'Skill',
+  //   component: () => import('../views/Skill.vue')
+  // },
+  {
     path: '/:pathMatch(.*)*',
     name: 'Not Found',
     component: () => import('../views/NotFound.vue')
