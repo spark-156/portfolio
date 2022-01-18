@@ -37,6 +37,7 @@ button {
   font-size: $lengths-2;
   cursor: pointer;
   box-shadow: $lengths-half $lengths-half $colors-black;
+  margin-right: $lengths-half;
 }
 
 .red {
