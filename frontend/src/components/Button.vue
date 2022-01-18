@@ -34,10 +34,9 @@ export default defineComponent({
 button {
   padding: $lengths-1 $lengths-2;
   border: none;
-  border-radius: none;
   font-size: $lengths-2;
   cursor: pointer;
-  box-shadow: $lengths-1 $lengths-1;
+  box-shadow: $lengths-half $lengths-half $colors-black;
 }
 
 .red {
