@@ -6,13 +6,13 @@
     </slot>
     <br />
     <br />
-    <link-vue href="/skills/docker">Docker</link-vue>
-    <link-vue href="/skills/linux">Linux</link-vue>
-    <link-vue href="/skills/python">Python</link-vue>
-    <link-vue href="/skills/javascript">Javascript</link-vue>
-    <link-vue href="/skills/typescript">Typescript</link-vue>
-    <link-vue href="/skills/react">React TS</link-vue>
-    <link-vue href="/skills/vue">Vue TS</link-vue>
+    <div><link-vue href="/skills/docker">Docker</link-vue></div>
+    <div><link-vue href="/skills/linux">Linux</link-vue></div>
+    <div><link-vue href="/skills/python">Python</link-vue></div>
+    <div><link-vue href="/skills/javascript">Javascript</link-vue></div>
+    <div><link-vue href="/skills/typescript">Typescript</link-vue></div>
+    <div><link-vue href="/skills/react">React TS</link-vue></div>
+    <div><link-vue href="/skills/vue">Vue TS</link-vue></div>
   </colored-background-div-vue>
 </template>
 

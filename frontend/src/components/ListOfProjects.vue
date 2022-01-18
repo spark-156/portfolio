@@ -6,10 +6,10 @@
     </slot>
     <br />
     <br />
-    <link-vue href="/projects/yourmonthlyplaylist">Your Monthly Playlist</link-vue>
-    <link-vue href="/projects/hboi">HBO-I</link-vue>
-    <link-vue href="/projects/portfolio">Portfolio</link-vue>
-    <link-vue href="/projects/cv">CV</link-vue>
+    <div><link-vue href="/projects/yourmonthlyplaylist">Your Monthly Playlist</link-vue></div>
+    <div><link-vue href="/projects/hboi">HBO-I</link-vue></div>
+    <div><link-vue href="/projects/portfolio">Portfolio</link-vue></div>
+    <div><link-vue href="/projects/cv">CV</link-vue></div>
   </colored-background-div-vue>
 </template>
 

@@ -1,15 +1,15 @@
 <template>
   <colored-background-div-vue :color="'red'">
     <slot>
-      Get in contact with me!
+      Get in touch!
     </slot>
   </colored-background-div-vue>
   <colored-background-div-vue :color="'blue'">
-    <link-vue href="https://cv.lucabergman.com/">CV</link-vue>
-    <link-vue href="mailto:luca.bergman@student.hu.nl">luca.bergman@student.hu.nl</link-vue>
-    <link-vue href="https://www.linkedin.com/in/luca-bergman-30b28b203/">Linked-in</link-vue>
-    <link-vue href="https://github.com/spark-156">Github</link-vue>
-    <link-vue href="https://www.instagram.com/lucaisawesome_/">Instagram</link-vue>
+    <div><link-vue href="https://cv.lucabergman.com/">CV</link-vue></div>
+    <div><link-vue href="mailto:luca.bergman@student.hu.nl">luca.bergman@student.hu.nl</link-vue></div>
+    <div><link-vue href="https://www.linkedin.com/in/luca-bergman-30b28b203/">Linked-in</link-vue></div>
+    <div><link-vue href="https://github.com/spark-156">Github</link-vue></div>
+    <div><link-vue href="https://www.instagram.com/lucaisawesome_/">Instagram</link-vue></div>
   </colored-background-div-vue>
 </template>
 
