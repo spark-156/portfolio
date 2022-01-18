@@ -28,6 +28,7 @@ export default defineComponent({
   color: $colors-black;
 
   min-width: 300px;
+  font-size: $lengths-3;
 }
 
 body, html {
