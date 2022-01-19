@@ -6,10 +6,10 @@
     </nav>
   </header>
   <modal-vue v-if="showModal" @close="showModal = false">
-    <a @click="() => showModal = false" href="#lucabergman">Luca Bergman</a>
-    <a @click="() => showModal = false" href="#skills">Skills</a>
-    <a @click="() => showModal = false" href="#projects">Projects</a>
-    <a @click="() => showModal = false" href="#contact">Contact</a>
+    <a @click="hideModal" href="#lucabergman">Luca Bergman</a>
+    <a @click="hideModal" href="#skills">Skills</a>
+    <a @click="hideModal" href="#projects">Projects</a>
+    <a @click="hideModal" href="#contact">Contact</a>
   </modal-vue>
 </template>
 
@@ -45,6 +45,9 @@ export default defineComponent({
 
       this.lastPosition = window.scrollY
       // this.scrolled = window.scrollY > 250;
+    },
+    hideModal () {
+      this.showModal = false
     }
   },
   created () {
