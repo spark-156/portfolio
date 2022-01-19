@@ -29,12 +29,15 @@ export default defineComponent({
 
   min-width: 300px;
   font-size: $lengths-3;
+
+  margin-top: $lengths-11;
 }
 
 body, html {
   padding: 0;
   margin: 0;
   background-color: $colors-white;
+  scroll-behavior: smooth;
 }
 
 * {
