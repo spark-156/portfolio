@@ -30,7 +30,7 @@ export default defineComponent({
   min-width: 300px;
   font-size: $lengths-3;
 
-  margin-top: $lengths-11;
+  // margin-top: $lengths-11;
 }
 
 body, html {
