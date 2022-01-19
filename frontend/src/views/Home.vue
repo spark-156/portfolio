@@ -1,6 +1,6 @@
 <template>
   <image-vue :src="'/portfoliofoto.jpg'" />
-  <colored-background-div-vue :color="'blue'">
+  <colored-background-div-vue id="lucabergman" :color="'blue'">
     My name is Luca Bergman
     <br />
     I am a passionate full stack developer

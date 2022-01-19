@@ -1,6 +1,6 @@
 <template>
   <image-vue :src="'/berlin.jpeg'" />
-  <colored-background-div-vue :color="'yellow'">
+  <colored-background-div-vue id="projects" :color="'yellow'">
     <slot>
       Some of my hobby projects you can check out:
     </slot>

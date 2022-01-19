@@ -6,10 +6,10 @@
     </nav>
   </header>
   <modal-vue v-if="showModal" @close="showModal = false">
-    <router-link @click="() => showModal = false" to="/">Luca Bergman</router-link>
-    <router-link @click="() => showModal = false" to="/skills">Skills</router-link>
-    <router-link @click="() => showModal = false" to="/projects">Projects</router-link>
-    <router-link @click="() => showModal = false" to="/contact">Contact</router-link>
+    <a @click="() => showModal = false" href="#lucabergman">Luca Bergman</a>
+    <a @click="() => showModal = false" href="#skills">Skills</a>
+    <a @click="() => showModal = false" href="#projects">Projects</a>
+    <a @click="() => showModal = false" href="#contact">Contact</a>
   </modal-vue>
 </template>
 

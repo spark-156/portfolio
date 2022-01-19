@@ -1,6 +1,6 @@
 <template>
   <image-vue :src="'landscape.jpeg'" />
-  <colored-background-div-vue :color="'purple'">
+  <colored-background-div-vue id="skills" :color="'purple'">
     <slot>
       Fluent in:
     </slot>

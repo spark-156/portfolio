@@ -4,7 +4,7 @@
       Get in touch!
     </slot>
   </colored-background-div-vue>
-  <colored-background-div-vue :color="'blue'">
+  <colored-background-div-vue id="contact" :color="'blue'">
     <div><link-vue href="https://cv.lucabergman.com/">CV</link-vue></div>
     <div><link-vue href="mailto:luca.bergman@student.hu.nl">luca.bergman@student.hu.nl</link-vue></div>
     <div><link-vue href="https://www.linkedin.com/in/luca-bergman-30b28b203/">Linked-in</link-vue></div>
