@@ -32,9 +32,6 @@ export default defineComponent({
         currentId = this.$route.params.id
       }
       return skills.filter(project => project.id === currentId)[0]
-    },
-    nextSkillId: function () {
-      return skills[skills.indexOf(this.currentSkill) + 1].id
     }
   },
   components: {
