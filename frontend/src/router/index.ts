@@ -7,16 +7,16 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Home',
     component: Home
   },
-  // {
-  //   path: '/projects/:id',
-  //   name: 'Project',
-  //   component: () => import('../views/Project.vue')
-  // },
-  // {
-  //   path: '/skills/:id',
-  //   name: 'Skill',
-  //   component: () => import('../views/Skill.vue')
-  // },
+  {
+    path: '/projects/:id',
+    name: 'Project',
+    component: () => import('../views/Project.vue')
+  },
+  {
+    path: '/skills/:id',
+    name: 'Skill',
+    component: () => import('../views/Skill.vue')
+  },
   {
     path: '/:pathMatch(.*)*',
     name: 'Not Found',
