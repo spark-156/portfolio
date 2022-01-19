@@ -6,10 +6,10 @@
     </nav>
   </header>
   <modal-vue v-if="showModal" @close="showModal = false">
-    <a @click="hideModal" href="#lucabergman">Luca Bergman</a>
-    <a @click="hideModal" href="#skills">Skills</a>
-    <a @click="hideModal" href="#projects">Projects</a>
-    <a @click="hideModal" href="#contact">Contact</a>
+    <a @click="hideModal" href="/#lucabergman">Luca Bergman</a>
+    <a @click="hideModal" href="/#skills">Skills</a>
+    <a @click="hideModal" href="/#projects">Projects</a>
+    <a @click="hideModal" href="/#contact">Contact</a>
   </modal-vue>
 </template>
 
