@@ -1,5 +1,9 @@
 <template>
-  <a :href="href">
+  <a
+    :href="href"
+    target="_blank"
+    referrerpolicy="no-referrer"
+  >
     <slot></slot>
   </a>
 </template>
