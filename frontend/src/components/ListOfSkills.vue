@@ -11,8 +11,8 @@
     <div><link-vue href="/skills/python">Python</link-vue></div>
     <div><link-vue href="/skills/javascript">Javascript</link-vue></div>
     <div><link-vue href="/skills/typescript">Typescript</link-vue></div>
-    <div><link-vue href="/skills/react">React TS</link-vue></div>
-    <div><link-vue href="/skills/vue">Vue TS</link-vue></div>
+    <div><link-vue href="/skills/react">React</link-vue></div>
+    <div><link-vue href="/skills/vue">Vue</link-vue></div>
   </colored-background-div-vue>
 </template>
 
