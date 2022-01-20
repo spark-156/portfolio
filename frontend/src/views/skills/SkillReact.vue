@@ -9,7 +9,7 @@
     </div>
     <br />
     <div>
-      I have worked with React on many projects in school and have learned that I like working with typescript React the most. As it allows for faster less buggy development.
+      I have worked with React on many projects in school and have learned that I like working with typescript React the most. As it allows for faster less buggy development. My best react typescript project to date is: <link-vue :href="'https://github.com/spark-156/Your-Monthly-Playlist'">Your Monthly Playlist</link-vue>.
     </div>
   </colored-background-div-vue>
 </template>
@@ -18,12 +18,14 @@
 import { defineComponent } from 'vue'
 import ColoredBackgroundDivVue from '@/components/ColoredBackgroundDiv.vue'
 import ImageVue from '@/components/Image.vue'
+import LinkVue from '@/components/Link.vue'
 
 export default defineComponent({
   name: 'SkillReact',
   components: {
     'colored-background-div-vue': ColoredBackgroundDivVue,
-    'image-vue': ImageVue
+    'image-vue': ImageVue,
+    'link-vue': LinkVue
   }
 })
 </script>
