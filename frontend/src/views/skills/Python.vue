@@ -18,7 +18,6 @@
 import { defineComponent } from 'vue'
 import ColoredBackgroundDivVue from '@/components/ColoredBackgroundDiv.vue'
 import ImageVue from '@/components/Image.vue'
-import LinkVue from '@/components/Link.vue'
 
 export default defineComponent({
   name: 'Python',
