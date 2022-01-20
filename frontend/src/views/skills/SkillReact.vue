@@ -1,13 +1,16 @@
 <template>
   <image-vue :src="'/skills/react.png'" />
   <colored-background-div-vue :color="'blue'">
-    React
+    <h3>
+      React
+    </h3>
+    <div>
+      After getting myself familiar with default JavaScript DOM manipulation I turned my eye to my very first framework. I didn’t have to look much further than the list of the most popular JS front end frameworks. In the end I learned React by following a course on CodeCademy of which I now have a certificate.
+    </div>
     <br />
-    <br />
-    After getting myself familiar with default JavaScript DOM manipulation I turned my eye to my very first framework. I didn’t have to look much further than the list of the most popular JS front end frameworks. In the end I learned React by following a course on CodeCademy of which I now have a certificate.
-    <br />
-    <br />
-    I have worked with React on many projects in school and have learned that I like working with typescript React the most. As it allows for faster less buggy development.
+    <div>
+      I have worked with React on many projects in school and have learned that I like working with typescript React the most. As it allows for faster less buggy development.
+    </div>
   </colored-background-div-vue>
 </template>
 
