@@ -1,5 +1,5 @@
 <template>
-  <image-vue :src="'/portfoliofoto.jpg'" />
+  <image-vue :src="'/home/portfoliofoto.jpg'" />
   <colored-background-div-vue id="lucabergman" :color="'blue'">
     My name is Luca Bergman
     <br />
