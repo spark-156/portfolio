@@ -21,7 +21,7 @@ import ImageVue from '@/components/Image.vue'
 import LinkVue from '@/components/Link.vue'
 
 export default defineComponent({
-  name: 'SkillDocker',
+  name: 'Docker',
   components: {
     'colored-background-div-vue': ColoredBackgroundDivVue,
     'image-vue': ImageVue,

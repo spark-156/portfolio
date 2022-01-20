@@ -9,15 +9,15 @@ const routes: Array<RouteRecordRaw> = [
   }, {
     path: '/skills/react',
     name: 'React',
-    component: () => import('../views/skills/SkillReact.vue')
+    component: () => import('../views/skills/React.vue')
   }, {
     path: '/skills/docker',
     name: 'Docker',
-    component: () => import('../views/skills/SkillDocker.vue')
+    component: () => import('../views/skills/Docker.vue')
   }, {
     path: '/skills/linux',
     name: 'Linux',
-    component: () => import('../views/skills/SkillLinux.vue')
+    component: () => import('../views/skills/Linux.vue')
   }, {
     path: '/:pathMatch(.*)*',
     name: 'Not Found',
