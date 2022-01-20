@@ -1,6 +1,6 @@
 <template>
   <image-vue :src="'/skills/linux.png'" />
-  <colored-background-div-vue :color="'blue'">
+  <colored-background-div-vue :color="'purple'">
     <h3>
       Linux
     </h3>
