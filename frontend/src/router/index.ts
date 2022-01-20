@@ -15,6 +15,10 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Docker',
     component: () => import('../views/skills/SkillDocker.vue')
   }, {
+    path: '/skills/linux',
+    name: 'Linux',
+    component: () => import('../views/skills/SkillLinux.vue')
+  }, {
     path: '/:pathMatch(.*)*',
     name: 'Not Found',
     component: () => import('../views/NotFound.vue')
