@@ -1,18 +1,18 @@
 <template>
-  <image-vue :src="'landscape.jpeg'" />
+  <image-vue :src="'/home/landscape.jpeg'" />
   <colored-background-div-vue id="skills" :color="'purple'">
     <slot>
       Fluent in:
     </slot>
     <br />
     <br />
-    <div><link-vue href="/skills/docker">Docker</link-vue></div>
-    <div><link-vue href="/skills/linux">Linux</link-vue></div>
-    <div><link-vue href="/skills/python">Python</link-vue></div>
-    <div><link-vue href="/skills/javascript">Javascript</link-vue></div>
-    <div><link-vue href="/skills/typescript">Typescript</link-vue></div>
-    <div><link-vue href="/skills/react">React</link-vue></div>
-    <div><link-vue href="/skills/vue">Vue</link-vue></div>
+    <div><router-link to="/skills/docker">Docker</router-link></div>
+    <div><router-link to="/skills/linux">Linux</router-link></div>
+    <div><router-link to="/skills/python">Python</router-link></div>
+    <div><router-link to="/skills/javascript">Javascript</router-link></div>
+    <div><router-link to="/skills/typescript">Typescript</router-link></div>
+    <div><router-link to="/skills/react">React</router-link></div>
+    <div><router-link to="/skills/vue">Vue</router-link></div>
   </colored-background-div-vue>
 </template>
 
@@ -20,14 +20,18 @@
 import { defineComponent } from 'vue'
 import ColoredBackgroundDivVue from './ColoredBackgroundDiv.vue'
 import ImageVue from './Image.vue'
-import LinkVue from './Link.vue'
 
 export default defineComponent({
   name: 'ListOfSkills',
   components: {
     'image-vue': ImageVue,
-    'colored-background-div-vue': ColoredBackgroundDivVue,
-    'link-vue': LinkVue
+    'colored-background-div-vue': ColoredBackgroundDivVue
   }
 })
 </script>
+
+<style lang="scss" scoped>
+a {
+  color: inherit;
+}
+</style>
