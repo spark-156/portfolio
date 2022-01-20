@@ -19,6 +19,10 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Linux',
     component: () => import('../views/skills/Linux.vue')
   }, {
+    path: '/skills/python',
+    name: 'Python',
+    component: () => import('../views/skills/Python.vue')
+  }, {
     path: '/:pathMatch(.*)*',
     name: 'Not Found',
     component: () => import('../views/NotFound.vue')
