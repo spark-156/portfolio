@@ -10,12 +10,6 @@
     <div><link-vue href="/projects/hboi">HBO-I</link-vue></div>
     <div><link-vue href="/projects/portfolio">Portfolio</link-vue></div>
     <div><link-vue href="/projects/cv">CV</link-vue></div>
-
-    <div v-for="(project) in projects" :key="project.id">
-      <link-vue :href="`/projects/${project.id}`">
-        {{ project.name }}
-      </link-vue>
-    </div>
   </colored-background-div-vue>
 </template>
 
@@ -24,7 +18,6 @@ import { defineComponent } from 'vue'
 import ColoredBackgroundDivVue from './ColoredBackgroundDiv.vue'
 import ImageVue from './Image.vue'
 import LinkVue from './Link.vue'
-import { projects } from '@/assets/projectsandskills'
 
 export default defineComponent({
   name: 'ListOfProjects',
@@ -32,11 +25,6 @@ export default defineComponent({
     'image-vue': ImageVue,
     'colored-background-div-vue': ColoredBackgroundDivVue,
     'link-vue': LinkVue
-  },
-  data () {
-    return {
-      projects: projects
-    }
   }
 })
 </script>
