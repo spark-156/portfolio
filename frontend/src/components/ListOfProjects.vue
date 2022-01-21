@@ -10,6 +10,7 @@
     <div><router-link to="/projects/hboi">HBO-I</router-link></div>
     <div><router-link to="/projects/portfolio">Portfolio</router-link></div>
     <div><router-link to="/projects/cv">CV</router-link></div>
+    <div><router-link to="/projects/vps">Virtual Private Server</router-link></div>
   </colored-background-div-vue>
 </template>
 

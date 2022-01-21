@@ -27,6 +27,10 @@ const routes: Array<RouteRecordRaw> = [
     name: 'HBO-I',
     component: () => import('../views/projects/Hboi.vue')
   }, {
+    path: '/projects/vps',
+    name: 'Virtual Private Server',
+    component: () => import('../views/projects/Vps.vue')
+  }, {
     path: '/:pathMatch(.*)*',
     name: 'Not Found',
     component: () => import('../views/NotFound.vue')
