@@ -2,9 +2,9 @@ name: CI to Docker Hub
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
 #   pull_request:
-#     branches: [ master ]
+#     branches: [ main ]
 
 jobs:
 
@@ -35,3 +35,5 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags:  ${{ secrets.DOCKER_HUB_USERNAME }}/portfolio-frontend:latest
+          cache-from: type=registry,ref=user/app:latest
+          cache-to: type=inline
