@@ -29,11 +29,13 @@ jobs:
       -
         name: Build and push Frontend
         uses: docker/build-push-action@v3
+        env:
+          DOCKER_HUB_REPOSITORY: portfolio-frontend
         with:
           context: ./frontend
           file: ./frontend/Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
-          tags:  ${{ secrets.DOCKER_HUB_USERNAME }}/portfolio-frontend:latest
-          cache-from: type=registry,ref=user/app:latest
+          tags:  ${{ secrets.DOCKER_HUB_USERNAME }}/${{ env.DOCKER_HUB_REPOSITORY }}:latest
+          cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/${{ env.DOCKER_HUB_REPOSITORY }}:latest
           cache-to: type=inline
